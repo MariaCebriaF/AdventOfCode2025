@@ -35,8 +35,6 @@ vector<pair<long long, long long>> fusionar_rangos(vector<pair<long long, long l
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
 
     vector<pair<long long, long long>> rangos;
 
