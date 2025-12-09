@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Recorta espacios por la izquierda y derecha
+
 string trim(const string &s)
 {
     int n = (int)s.size();
@@ -24,7 +24,7 @@ int main()
     string line;
     int maxLen = 0;
 
-    // 1) Leer todas las líneas
+   
     while (getline(cin, line))
     {
         lines.push_back(line);
@@ -37,7 +37,7 @@ int main()
         return 0;
     }
 
-    // Hacer la matriz rectangular rellenando con espacios
+ 
     for (string &row : lines)
     {
         if ((int)row.size() < maxLen)
@@ -48,9 +48,8 @@ int main()
 
     int rows = (int)lines.size();
     int cols = maxLen;
-    int fila_op = rows - 1; // última fila: operadores
+    int fila_op = rows - 1; 
 
-    // 2) Marcar columnas separadoras (todas espacios)
     vector<bool> sep(cols, false);
     for (int c = 0; c < cols; ++c)
     {
@@ -135,7 +134,7 @@ int main()
                 value += v;
         }
         else
-        { // op == '*'
+        { 
             value = 1;
             for (long long v : nums)
                 value *= v;
