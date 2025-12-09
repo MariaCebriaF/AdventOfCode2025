@@ -50,7 +50,7 @@ int main()
     vector<array<long long, 3>> puntos;
     string linea;
 
-    // Leer puntos con formato: x,y,z
+
     while (getline(cin, linea))
     {
         if (linea.empty())
@@ -73,7 +73,7 @@ int main()
         return 0;
     }
 
-    // Generar todas las aristas posibles (completo)
+   
     vector<Arista> aristas;
     aristas.reserve(1LL * n * (n - 1) / 2);
 
