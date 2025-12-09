@@ -60,8 +60,6 @@ bool es_fresco(long long id, const vector<pair<long long, long long>> &rangos)
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
 
     vector<pair<long long, long long>> rangos;
     vector<long long> ids;
