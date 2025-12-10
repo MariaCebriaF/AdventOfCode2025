@@ -95,7 +95,7 @@ int main()
         }
     }
 
-    // Ordenar aristas por distancia
+   
     sort(aristas.begin(), aristas.end(),
          [](const Arista &a1, const Arista &a2)
          {
