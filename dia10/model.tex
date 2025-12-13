@@ -1,0 +1,7025 @@
+\documentclass{article}
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\begin{document}
+\section*{Joltage machines — ILP/CP-SAT model + solutions}
+% Machine 1
+\subsection*{Machine 1}
+\textbf{Pattern:} \texttt{[#.......#]}\\
+\textbf{Targets:} $\{8,27,38,16,29,6,33,24,29\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4\}$
+\item $x_{1}$ affects $\{1,2,6,8\}$
+\item $x_{2}$ affects $\{2,5,6,7\}$
+\item $x_{3}$ affects $\{0,1,2,4,6,7,8\}$
+\item $x_{4}$ affects $\{3,8\}$
+\item $x_{5}$ affects $\{0,3,4,5,6,8\}$
+\item $x_{6}$ affects $\{1,2,4,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} + x_{5} &= 8 \\
+x_{1} + x_{3} + x_{6} &= 27 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{6} &= 38 \\
+x_{4} + x_{5} &= 16 \\
+x_{0} + x_{3} + x_{5} + x_{6} &= 29 \\
+x_{2} + x_{5} &= 6 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} &= 33 \\
+x_{2} + x_{3} + x_{6} &= 24 \\
+x_{1} + x_{3} + x_{4} + x_{5} &= 29 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 7 \\
+x_{1} &= 7 \\
+x_{2} &= 4 \\
+x_{3} &= 6 \\
+x_{4} &= 14 \\
+x_{5} &= 2 \\
+x_{6} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 54\\
+
+% Machine 2
+\subsection*{Machine 2}
+\textbf{Pattern:} \texttt{[###.]}\\
+\textbf{Targets:} $\{27,12,27,21\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2\}$
+\item $x_{1}$ affects $\{0,2,3\}$
+\item $x_{2}$ affects $\{1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} &= 27 \\
+x_{0} + x_{2} &= 12 \\
+x_{0} + x_{1} &= 27 \\
+x_{1} + x_{2} &= 21 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 18 \\
+x_{2} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 30\\
+
+% Machine 3
+\subsection*{Machine 3}
+\textbf{Pattern:} \texttt{[.#.#]}\\
+\textbf{Targets:} $\{159,164,159,5\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3\}$
+\item $x_{1}$ affects $\{0,1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{1} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} &= 159 \\
+x_{0} + x_{1} &= 164 \\
+x_{1} &= 159 \\
+x_{0} &= 5 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 5 \\
+x_{1} &= 159 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 164\\
+
+% Machine 4
+\subsection*{Machine 4}
+\textbf{Pattern:} \texttt{[.###.##]}\\
+\textbf{Targets:} $\{174,170,59,170,162,170,26\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2\}$
+\item $x_{1}$ affects $\{0,1,2,3,5\}$
+\item $x_{2}$ affects $\{2,3,5\}$
+\item $x_{3}$ affects $\{2,4,6\}$
+\item $x_{4}$ affects $\{0,2,6\}$
+\item $x_{5}$ affects $\{0,1,3,4,5\}$
+\item $x_{6}$ affects $\{0,1,2,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{4} + x_{5} + x_{6} &= 174 \\
+x_{0} + x_{1} + x_{5} + x_{6} &= 170 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} &= 59 \\
+x_{1} + x_{2} + x_{5} + x_{6} &= 170 \\
+x_{3} + x_{5} + x_{6} &= 162 \\
+x_{1} + x_{2} + x_{5} + x_{6} &= 170 \\
+x_{3} + x_{4} &= 26 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 30 \\
+x_{3} &= 22 \\
+x_{4} &= 4 \\
+x_{5} &= 137 \\
+x_{6} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 196\\
+
+% Machine 5
+\subsection*{Machine 5}
+\textbf{Pattern:} \texttt{[...##..##.]}\\
+\textbf{Targets:} $\{37,46,35,37,24,37,19,16,9,35\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,4,6,9\}$
+\item $x_{1}$ affects $\{0,1,2,3,4,5,6,9\}$
+\item $x_{2}$ affects $\{0,1,2,5,9\}$
+\item $x_{3}$ affects $\{0,1,2,3,7\}$
+\item $x_{4}$ affects $\{0,1,3,6,8\}$
+\item $x_{5}$ affects $\{3,5\}$
+\item $x_{6}$ affects $\{1,3,4,5,6,9\}$
+\item $x_{7}$ affects $\{1,3,4,5,7,8,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} &= 37 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 46 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 35 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 37 \\
+x_{0} + x_{1} + x_{6} + x_{7} &= 24 \\
+x_{1} + x_{2} + x_{5} + x_{6} + x_{7} &= 37 \\
+x_{0} + x_{1} + x_{4} + x_{6} &= 19 \\
+x_{3} + x_{7} &= 16 \\
+x_{4} + x_{7} &= 9 \\
+x_{0} + x_{1} + x_{2} + x_{6} + x_{7} &= 35 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 15 \\
+x_{2} &= 11 \\
+x_{3} &= 9 \\
+x_{4} &= 2 \\
+x_{5} &= 2 \\
+x_{6} &= 2 \\
+x_{7} &= 7 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 48\\
+
+% Machine 6
+\subsection*{Machine 6}
+\textbf{Pattern:} \texttt{[#...#.####]}\\
+\textbf{Targets:} $\{58,53,44,44,10,63,26,32,38,44\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,4,6,8\}$
+\item $x_{1}$ affects $\{0,1,4,5,6,9\}$
+\item $x_{2}$ affects $\{1,5,6\}$
+\item $x_{3}$ affects $\{3,4,5,8\}$
+\item $x_{4}$ affects $\{0,1,2,3,5,6,8,9\}$
+\item $x_{5}$ affects $\{0,2,3,9\}$
+\item $x_{6}$ affects $\{0,1,2,3,5,7,9\}$
+\item $x_{7}$ affects $\{0,2,4,5,7,8,9\}$
+\item $x_{8}$ affects $\{0,1,5,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 58 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{6} + x_{8} &= 53 \\
+x_{4} + x_{5} + x_{6} + x_{7} &= 44 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} &= 44 \\
+x_{0} + x_{1} + x_{3} + x_{7} &= 10 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} + x_{8} &= 63 \\
+x_{0} + x_{1} + x_{2} + x_{4} &= 26 \\
+x_{6} + x_{7} + x_{8} &= 32 \\
+x_{0} + x_{3} + x_{4} + x_{7} + x_{8} &= 38 \\
+x_{1} + x_{4} + x_{5} + x_{6} + x_{7} &= 44 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{2} &= 12 \\
+x_{3} &= 5 \\
+x_{4} &= 14 \\
+x_{5} &= 12 \\
+x_{6} &= 13 \\
+x_{7} &= 5 \\
+x_{8} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 75\\
+
+% Machine 7
+\subsection*{Machine 7}
+\textbf{Pattern:} \texttt{[.....##..#]}\\
+\textbf{Targets:} $\{33,42,33,14,58,14,26,32,46,28\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6,7,8,9\}$
+\item $x_{1}$ affects $\{1,4,5,6,8,9\}$
+\item $x_{2}$ affects $\{0,3,9\}$
+\item $x_{3}$ affects $\{0,1,4,7,8,9\}$
+\item $x_{4}$ affects $\{2,4,7\}$
+\item $x_{5}$ affects $\{1,8\}$
+\item $x_{6}$ affects $\{0,2,3,7,8,9\}$
+\item $x_{7}$ affects $\{0,4,5,6,7,8,9\}$
+\item $x_{8}$ affects $\{0,1,2,4,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{6} + x_{7} + x_{8} &= 33 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{8} &= 42 \\
+x_{4} + x_{6} + x_{8} &= 33 \\
+x_{0} + x_{2} + x_{6} &= 14 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{7} + x_{8} &= 58 \\
+x_{1} + x_{7} &= 14 \\
+x_{0} + x_{1} + x_{7} &= 26 \\
+x_{0} + x_{3} + x_{4} + x_{6} + x_{7} &= 32 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} + x_{7} + x_{8} &= 46 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{6} + x_{7} &= 28 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 12 \\
+x_{1} &= 11 \\
+x_{2} &= 1 \\
+x_{4} &= 16 \\
+x_{5} &= 3 \\
+x_{6} &= 1 \\
+x_{7} &= 3 \\
+x_{8} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 63\\
+
+% Machine 8
+\subsection*{Machine 8}
+\textbf{Pattern:} \texttt{[....#..#.]}\\
+\textbf{Targets:} $\{80,77,75,39,56,78,65,47,73\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,5,8\}$
+\item $x_{1}$ affects $\{1,3,4,5,6,7,8\}$
+\item $x_{2}$ affects $\{1,2,3,7\}$
+\item $x_{3}$ affects $\{0,1,2,3,4,5,6,8\}$
+\item $x_{4}$ affects $\{0,1,2,4,6,7\}$
+\item $x_{5}$ affects $\{0,1,2,3,5,6,7,8\}$
+\item $x_{6}$ affects $\{0\}$
+\item $x_{7}$ affects $\{0,1,3,5,7,8\}$
+\item $x_{8}$ affects $\{0,1,3,4,5,7\}$
+\item $x_{9}$ affects $\{0,1,2,4,5,6,8\}$
+\item $x_{10}$ affects $\{1,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} + x_{9} &= 80 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} + x_{9} + x_{10} &= 77 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{9} &= 75 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{7} + x_{8} &= 39 \\
+x_{1} + x_{3} + x_{4} + x_{8} + x_{9} &= 56 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{7} + x_{8} + x_{9} + x_{10} &= 78 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{9} + x_{10} &= 65 \\
+x_{1} + x_{2} + x_{4} + x_{5} + x_{7} + x_{8} + x_{10} &= 47 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{7} + x_{9} + x_{10} &= 73 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 16 \\
+x_{1} &= 10 \\
+x_{2} &= 4 \\
+x_{3} &= 3 \\
+x_{4} &= 11 \\
+x_{5} &= 14 \\
+x_{6} &= 1 \\
+x_{7} &= 3 \\
+x_{8} &= 5 \\
+x_{9} &= 27 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 94\\
+
+% Machine 9
+\subsection*{Machine 9}
+\textbf{Pattern:} \texttt{[.#####]}\\
+\textbf{Targets:} $\{66,50,21,16,70,64\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{5\}$
+\item $x_{1}$ affects $\{4,5\}$
+\item $x_{2}$ affects $\{2,5\}$
+\item $x_{3}$ affects $\{0,1,5\}$
+\item $x_{4}$ affects $\{0,4\}$
+\item $x_{5}$ affects $\{0,1,4,5\}$
+\item $x_{6}$ affects $\{0,1,2,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} + x_{4} + x_{5} + x_{6} &= 66 \\
+x_{3} + x_{5} + x_{6} &= 50 \\
+x_{2} + x_{6} &= 21 \\
+x_{6} &= 16 \\
+x_{1} + x_{4} + x_{5} + x_{6} &= 70 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} &= 64 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 25 \\
+x_{2} &= 5 \\
+x_{3} &= 21 \\
+x_{4} &= 16 \\
+x_{5} &= 13 \\
+x_{6} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 96\\
+
+% Machine 10
+\subsection*{Machine 10}
+\textbf{Pattern:} \texttt{[....####]}\\
+\textbf{Targets:} $\{18,43,32,54,60,69,35,15\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,4,5\}$
+\item $x_{1}$ affects $\{1,4\}$
+\item $x_{2}$ affects $\{2,5\}$
+\item $x_{3}$ affects $\{0,1,2,3,4,5,6\}$
+\item $x_{4}$ affects $\{0,3,4,5,6,7\}$
+\item $x_{5}$ affects $\{3,4,5\}$
+\item $x_{6}$ affects $\{1,2,3,5,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} + x_{4} &= 18 \\
+x_{0} + x_{1} + x_{3} + x_{6} &= 43 \\
+x_{2} + x_{3} + x_{6} &= 32 \\
+x_{3} + x_{4} + x_{5} + x_{6} &= 54 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} &= 60 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} &= 69 \\
+x_{3} + x_{4} + x_{6} &= 35 \\
+x_{4} &= 15 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 3 \\
+x_{1} &= 20 \\
+x_{2} &= 12 \\
+x_{3} &= 3 \\
+x_{4} &= 15 \\
+x_{5} &= 19 \\
+x_{6} &= 17 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 89\\
+
+% Machine 11
+\subsection*{Machine 11}
+\textbf{Pattern:} \texttt{[.#.#]}\\
+\textbf{Targets:} $\{2,194,17,196\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3\}$
+\item $x_{1}$ affects $\{2\}$
+\item $x_{2}$ affects $\{0,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} &= 2 \\
+x_{0} &= 194 \\
+x_{1} + x_{2} &= 17 \\
+x_{0} + x_{2} &= 196 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 194 \\
+x_{1} &= 15 \\
+x_{2} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 211\\
+
+% Machine 12
+\subsection*{Machine 12}
+\textbf{Pattern:} \texttt{[###..##]}\\
+\textbf{Targets:} $\{55,38,57,47,34,65,52\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4\}$
+\item $x_{1}$ affects $\{6\}$
+\item $x_{2}$ affects $\{1,3\}$
+\item $x_{3}$ affects $\{0,1,2,3,6\}$
+\item $x_{4}$ affects $\{0,1,2,5,6\}$
+\item $x_{5}$ affects $\{0,1,3,4,6\}$
+\item $x_{6}$ affects $\{0,2,3,4,5\}$
+\item $x_{7}$ affects $\{2,5,6\}$
+\item $x_{8}$ affects $\{5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} &= 55 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} &= 38 \\
+x_{3} + x_{4} + x_{6} + x_{7} &= 57 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} &= 47 \\
+x_{0} + x_{5} + x_{6} &= 34 \\
+x_{4} + x_{6} + x_{7} + x_{8} &= 65 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{7} &= 52 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 1 \\
+x_{2} &= 3 \\
+x_{3} &= 10 \\
+x_{4} &= 11 \\
+x_{5} &= 14 \\
+x_{6} &= 20 \\
+x_{7} &= 16 \\
+x_{8} &= 18 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 93\\
+
+% Machine 13
+\subsection*{Machine 13}
+\textbf{Pattern:} \texttt{[#....#...#]}\\
+\textbf{Targets:} $\{77,44,104,72,76,57,91,60,51,44\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6,7,8\}$
+\item $x_{1}$ affects $\{0,2,3,4,5,6,7\}$
+\item $x_{2}$ affects $\{0,1,2,3,4,5,8,9\}$
+\item $x_{3}$ affects $\{1,2,3,4,6,7,8,9\}$
+\item $x_{4}$ affects $\{0,1,2,3,6,7\}$
+\item $x_{5}$ affects $\{0,2,5,9\}$
+\item $x_{6}$ affects $\{3,7,9\}$
+\item $x_{7}$ affects $\{0,1,2,3,4,5,8\}$
+\item $x_{8}$ affects $\{2\}$
+\item $x_{9}$ affects $\{6,8,9\}$
+\item $x_{10}$ affects $\{0,2,4,5,6\}$
+\item $x_{11}$ affects $\{1,6,8,9\}$
+\item $x_{12}$ affects $\{2,3,4,6,7,8,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{12} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{7} + x_{10} &= 77 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{7} + x_{11} &= 44 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} + x_{10} + x_{12} &= 104 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} + x_{12} &= 72 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{7} + x_{10} + x_{12} &= 76 \\
+x_{1} + x_{2} + x_{5} + x_{7} + x_{10} &= 57 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{9} + x_{10} + x_{11} + x_{12} &= 91 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{6} + x_{12} &= 60 \\
+x_{0} + x_{2} + x_{3} + x_{7} + x_{9} + x_{11} + x_{12} &= 51 \\
+x_{2} + x_{3} + x_{5} + x_{6} + x_{9} + x_{11} + x_{12} &= 44 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 4 \\
+x_{1} &= 16 \\
+x_{3} &= 1 \\
+x_{4} &= 16 \\
+x_{5} &= 9 \\
+x_{7} &= 12 \\
+x_{8} &= 7 \\
+x_{10} &= 20 \\
+x_{11} &= 11 \\
+x_{12} &= 23 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 119\\
+
+% Machine 14
+\subsection*{Machine 14}
+\textbf{Pattern:} \texttt{[#.###.#]}\\
+\textbf{Targets:} $\{44,20,43,26,36,20,25\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,4\}$
+\item $x_{1}$ affects $\{3,4\}$
+\item $x_{2}$ affects $\{0,1,2,3,5,6\}$
+\item $x_{3}$ affects $\{0,1,2,4,6\}$
+\item $x_{4}$ affects $\{0,5\}$
+\item $x_{5}$ affects $\{2,3,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{4} &= 44 \\
+x_{2} + x_{3} &= 20 \\
+x_{0} + x_{2} + x_{3} + x_{5} &= 43 \\
+x_{1} + x_{2} + x_{5} &= 26 \\
+x_{0} + x_{1} + x_{3} + x_{5} &= 36 \\
+x_{2} + x_{4} &= 20 \\
+x_{2} + x_{3} + x_{5} &= 25 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 18 \\
+x_{1} &= 7 \\
+x_{2} &= 14 \\
+x_{3} &= 6 \\
+x_{4} &= 6 \\
+x_{5} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 56\\
+
+% Machine 15
+\subsection*{Machine 15}
+\textbf{Pattern:} \texttt{[.....##.#]}\\
+\textbf{Targets:} $\{85,24,53,22,56,55,27,72,71\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,6,7,8\}$
+\item $x_{1}$ affects $\{0,2,5,8\}$
+\item $x_{2}$ affects $\{0,4,5,6,7,8\}$
+\item $x_{3}$ affects $\{0,1,2,5,6,8\}$
+\item $x_{4}$ affects $\{2,3,5\}$
+\item $x_{5}$ affects $\{2,3,4,6,7,8\}$
+\item $x_{6}$ affects $\{0,3,5,7\}$
+\item $x_{7}$ affects $\{0,1,2,4,7,8\}$
+\item $x_{8}$ affects $\{0,4,7\}$
+\item $x_{9}$ affects $\{2,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{6} + x_{7} + x_{8} &= 85 \\
+x_{0} + x_{3} + x_{7} &= 24 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{7} + x_{9} &= 53 \\
+x_{0} + x_{4} + x_{5} + x_{6} &= 22 \\
+x_{2} + x_{5} + x_{7} + x_{8} &= 56 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{6} &= 55 \\
+x_{0} + x_{2} + x_{3} + x_{5} &= 27 \\
+x_{0} + x_{2} + x_{5} + x_{6} + x_{7} + x_{8} &= 72 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{7} + x_{9} &= 71 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 14 \\
+x_{2} &= 20 \\
+x_{3} &= 3 \\
+x_{4} &= 2 \\
+x_{5} &= 4 \\
+x_{6} &= 16 \\
+x_{7} &= 21 \\
+x_{8} &= 11 \\
+x_{9} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 100\\
+
+% Machine 16
+\subsection*{Machine 16}
+\textbf{Pattern:} \texttt{[...#..]}\\
+\textbf{Targets:} $\{39,21,130,34,28,140\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,5\}$
+\item $x_{1}$ affects $\{0,1,4,5\}$
+\item $x_{2}$ affects $\{2,5\}$
+\item $x_{3}$ affects $\{0,1,3\}$
+\item $x_{4}$ affects $\{0,2,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{4} &= 39 \\
+x_{1} + x_{3} &= 21 \\
+x_{0} + x_{2} + x_{4} &= 130 \\
+x_{0} + x_{3} + x_{4} &= 34 \\
+x_{1} + x_{4} &= 28 \\
+x_{0} + x_{1} + x_{2} + x_{4} &= 140 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 5 \\
+x_{1} &= 10 \\
+x_{2} &= 107 \\
+x_{3} &= 11 \\
+x_{4} &= 18 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 151\\
+
+% Machine 17
+\subsection*{Machine 17}
+\textbf{Pattern:} \texttt{[##.####.]}\\
+\textbf{Targets:} $\{163,195,143,48,49,46,169,184\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,5,6,7\}$
+\item $x_{1}$ affects $\{0,1,2,3,4,5\}$
+\item $x_{2}$ affects $\{1,3,4,6,7\}$
+\item $x_{3}$ affects $\{1,2,3,4,5,6\}$
+\item $x_{4}$ affects $\{0,5,7\}$
+\item $x_{5}$ affects $\{0,3,4,5,6,7\}$
+\item $x_{6}$ affects $\{1,4,7\}$
+\item $x_{7}$ affects $\{0,1,2\}$
+\item $x_{8}$ affects $\{1,4,6\}$
+\item $x_{9}$ affects $\{0,1,2,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{4} + x_{5} + x_{7} + x_{9} &= 163 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{6} + x_{7} + x_{8} + x_{9} &= 195 \\
+x_{1} + x_{3} + x_{7} + x_{9} &= 143 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} &= 48 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{8} &= 49 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} &= 46 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{8} + x_{9} &= 169 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} + x_{9} &= 184 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 23 \\
+x_{1} &= 3 \\
+x_{2} &= 5 \\
+x_{4} &= 3 \\
+x_{5} &= 17 \\
+x_{6} &= 18 \\
+x_{7} &= 22 \\
+x_{8} &= 6 \\
+x_{9} &= 118 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 215\\
+
+% Machine 18
+\subsection*{Machine 18}
+\textbf{Pattern:} \texttt{[##.#]}\\
+\textbf{Targets:} $\{25,22,8,22\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3\}$
+\item $x_{1}$ affects $\{1,2,3\}$
+\item $x_{2}$ affects $\{0\}$
+\item $x_{3}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} &= 25 \\
+x_{0} + x_{1} &= 22 \\
+x_{1} + x_{3} &= 8 \\
+x_{0} + x_{1} &= 22 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 3 \\
+x_{2} &= 1 \\
+x_{3} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 28\\
+
+% Machine 19
+\subsection*{Machine 19}
+\textbf{Pattern:} \texttt{[#.###.#.]}\\
+\textbf{Targets:} $\{45,10,26,24,31,18,10,21\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,4,5,7\}$
+\item $x_{1}$ affects $\{0,4\}$
+\item $x_{2}$ affects $\{0,1,2,7\}$
+\item $x_{3}$ affects $\{5\}$
+\item $x_{4}$ affects $\{0,1,2,3,4,5,6\}$
+\item $x_{5}$ affects $\{0,3,4,5,7\}$
+\item $x_{6}$ affects $\{0,2\}$
+\item $x_{7}$ affects $\{1,3,6,7\}$
+\item $x_{8}$ affects $\{3,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} &= 45 \\
+x_{0} + x_{2} + x_{4} + x_{7} &= 10 \\
+x_{0} + x_{2} + x_{4} + x_{6} &= 26 \\
+x_{0} + x_{4} + x_{5} + x_{7} + x_{8} &= 24 \\
+x_{0} + x_{1} + x_{4} + x_{5} + x_{8} &= 31 \\
+x_{0} + x_{3} + x_{4} + x_{5} &= 18 \\
+x_{4} + x_{7} + x_{8} &= 10 \\
+x_{0} + x_{2} + x_{5} + x_{7} &= 21 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 2 \\
+x_{1} &= 7 \\
+x_{2} &= 7 \\
+x_{3} &= 3 \\
+x_{4} &= 1 \\
+x_{5} &= 12 \\
+x_{6} &= 16 \\
+x_{8} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 57\\
+
+% Machine 20
+\subsection*{Machine 20}
+\textbf{Pattern:} \texttt{[.#..#]}\\
+\textbf{Targets:} $\{33,18,38,17,49\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,4\}$
+\item $x_{1}$ affects $\{4\}$
+\item $x_{2}$ affects $\{3,4\}$
+\item $x_{3}$ affects $\{1,2\}$
+\item $x_{4}$ affects $\{0,3,4\}$
+\item $x_{5}$ affects $\{1,2,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{4} &= 33 \\
+x_{3} + x_{5} &= 18 \\
+x_{0} + x_{3} + x_{5} &= 38 \\
+x_{2} + x_{4} &= 17 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} &= 49 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 20 \\
+x_{2} &= 4 \\
+x_{3} &= 6 \\
+x_{4} &= 13 \\
+x_{5} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 55\\
+
+% Machine 21
+\subsection*{Machine 21}
+\textbf{Pattern:} \texttt{[....#..###]}\\
+\textbf{Targets:} $\{55,76,87,15,45,85,72,50,72,45\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,5,8\}$
+\item $x_{1}$ affects $\{5\}$
+\item $x_{2}$ affects $\{2,4,6,7,8\}$
+\item $x_{3}$ affects $\{1,4,5,6,7\}$
+\item $x_{4}$ affects $\{1,8,9\}$
+\item $x_{5}$ affects $\{0,1,2,5,6,7,8,9\}$
+\item $x_{6}$ affects $\{1,3,8,9\}$
+\item $x_{7}$ affects $\{0,1\}$
+\item $x_{8}$ affects $\{2,4,5,6,7,8,9\}$
+\item $x_{9}$ affects $\{0,2,9\}$
+\item $x_{10}$ affects $\{0,2,5,6,8\}$
+\item $x_{11}$ affects $\{2,5,6\}$
+\item $x_{12}$ affects $\{1,2,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{12} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{5} + x_{7} + x_{9} + x_{10} &= 55 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{12} &= 76 \\
+x_{0} + x_{2} + x_{5} + x_{8} + x_{9} + x_{10} + x_{11} + x_{12} &= 87 \\
+x_{6} &= 15 \\
+x_{2} + x_{3} + x_{8} &= 45 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{8} + x_{10} + x_{11} + x_{12} &= 85 \\
+x_{2} + x_{3} + x_{5} + x_{8} + x_{10} + x_{11} &= 72 \\
+x_{2} + x_{3} + x_{5} + x_{8} &= 50 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} + x_{8} + x_{10} &= 72 \\
+x_{4} + x_{5} + x_{6} + x_{8} + x_{9} &= 45 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 17 \\
+x_{1} &= 6 \\
+x_{2} &= 14 \\
+x_{3} &= 31 \\
+x_{5} &= 5 \\
+x_{6} &= 15 \\
+x_{7} &= 4 \\
+x_{9} &= 25 \\
+x_{10} &= 21 \\
+x_{11} &= 1 \\
+x_{12} &= 4 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 143\\
+
+% Machine 22
+\subsection*{Machine 22}
+\textbf{Pattern:} \texttt{[##..##...#]}\\
+\textbf{Targets:} $\{66,35,49,39,58,55,58,32,52,78\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,5,6,7,9\}$
+\item $x_{1}$ affects $\{0,1,2,4,7,9\}$
+\item $x_{2}$ affects $\{0,2,4,5,8,9\}$
+\item $x_{3}$ affects $\{0,2,4,6,8,9\}$
+\item $x_{4}$ affects $\{1,6,7,8\}$
+\item $x_{5}$ affects $\{1,2,3,4,5,7,8\}$
+\item $x_{6}$ affects $\{1,4,5,6,7,9\}$
+\item $x_{7}$ affects $\{0,2,3,4,5,6,8,9\}$
+\item $x_{8}$ affects $\{1,2,6\}$
+\item $x_{9}$ affects $\{0,6,8,9\}$
+\item $x_{10}$ affects $\{1,3,7\}$
+\item $x_{11}$ affects $\{4,8,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{11} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{7} + x_{9} &= 66 \\
+x_{0} + x_{1} + x_{4} + x_{5} + x_{6} + x_{8} + x_{10} &= 35 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{7} + x_{8} &= 49 \\
+x_{0} + x_{5} + x_{7} + x_{10} &= 39 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} + x_{11} &= 58 \\
+x_{0} + x_{2} + x_{5} + x_{6} + x_{7} &= 55 \\
+x_{0} + x_{3} + x_{4} + x_{6} + x_{7} + x_{8} + x_{9} &= 58 \\
+x_{0} + x_{1} + x_{4} + x_{5} + x_{6} + x_{10} &= 32 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{9} + x_{11} &= 52 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{6} + x_{7} + x_{9} + x_{11} &= 78 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 10 \\
+x_{2} &= 10 \\
+x_{4} &= 3 \\
+x_{6} &= 6 \\
+x_{7} &= 26 \\
+x_{8} &= 3 \\
+x_{9} &= 7 \\
+x_{11} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 84\\
+
+% Machine 23
+\subsection*{Machine 23}
+\textbf{Pattern:} \texttt{[#...##.]}\\
+\textbf{Targets:} $\{23,28,43,28,38,24,25\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4,5\}$
+\item $x_{1}$ affects $\{0,3,4\}$
+\item $x_{2}$ affects $\{3,5\}$
+\item $x_{3}$ affects $\{1,4,6\}$
+\item $x_{4}$ affects $\{2,6\}$
+\item $x_{5}$ affects $\{1,2,3,4\}$
+\item $x_{6}$ affects $\{0,2,4\}$
+\item $x_{7}$ affects $\{0,1,2,3,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{6} + x_{7} &= 23 \\
+x_{3} + x_{5} + x_{7} &= 28 \\
+x_{0} + x_{4} + x_{5} + x_{6} + x_{7} &= 43 \\
+x_{1} + x_{2} + x_{5} + x_{7} &= 28 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} &= 38 \\
+x_{0} + x_{2} + x_{7} &= 24 \\
+x_{3} + x_{4} &= 25 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 11 \\
+x_{1} &= 10 \\
+x_{2} &= 1 \\
+x_{3} &= 11 \\
+x_{4} &= 14 \\
+x_{5} &= 5 \\
+x_{6} &= 1 \\
+x_{7} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 65\\
+
+% Machine 24
+\subsection*{Machine 24}
+\textbf{Pattern:} \texttt{[.#.#]}\\
+\textbf{Targets:} $\{35,53,19,19\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0\}$
+\item $x_{1}$ affects $\{1,2\}$
+\item $x_{2}$ affects $\{0,1\}$
+\item $x_{3}$ affects $\{0,1,3\}$
+\item $x_{4}$ affects $\{0,1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{4} &= 35 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 53 \\
+x_{1} + x_{4} &= 19 \\
+x_{3} &= 19 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 18 \\
+x_{2} &= 15 \\
+x_{3} &= 19 \\
+x_{4} &= 1 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 53\\
+
+% Machine 25
+\subsection*{Machine 25}
+\textbf{Pattern:} \texttt{[#..##.]}\\
+\textbf{Targets:} $\{20,17,31,48,34,19\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3,4\}$
+\item $x_{1}$ affects $\{1,3,4,5\}$
+\item $x_{2}$ affects $\{2,3,4\}$
+\item $x_{3}$ affects $\{3,5\}$
+\item $x_{4}$ affects $\{2,3\}$
+\item $x_{5}$ affects $\{0,1,2,3,5\}$
+\item $x_{6}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{5} + x_{6} &= 20 \\
+x_{1} + x_{5} &= 17 \\
+x_{2} + x_{4} + x_{5} + x_{6} &= 31 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} &= 48 \\
+x_{0} + x_{1} + x_{2} &= 34 \\
+x_{1} + x_{3} + x_{5} &= 19 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 6 \\
+x_{2} &= 19 \\
+x_{3} &= 2 \\
+x_{4} &= 1 \\
+x_{5} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 48\\
+
+% Machine 26
+\subsection*{Machine 26}
+\textbf{Pattern:} \texttt{[#..#..##.#]}\\
+\textbf{Targets:} $\{50,71,38,66,82,38,69,36,56,33\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,4,5,6,9\}$
+\item $x_{1}$ affects $\{0,2,3,5\}$
+\item $x_{2}$ affects $\{3,4,6\}$
+\item $x_{3}$ affects $\{0,1,2,3,4,5,8,9\}$
+\item $x_{4}$ affects $\{0,3,4,6,7,8,9\}$
+\item $x_{5}$ affects $\{1,2,4,6,7\}$
+\item $x_{6}$ affects $\{5,6,8\}$
+\item $x_{7}$ affects $\{0,6\}$
+\item $x_{8}$ affects $\{0,1,2,3,4,6,9\}$
+\item $x_{9}$ affects $\{1,4,7\}$
+\item $x_{10}$ affects $\{1,2,4,5,6,8,9\}$
+\item $x_{11}$ affects $\{0,1,3,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{11} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{3} + x_{4} + x_{7} + x_{8} + x_{11} &= 50 \\
+x_{0} + x_{3} + x_{5} + x_{8} + x_{9} + x_{10} + x_{11} &= 71 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{8} + x_{10} &= 38 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{8} + x_{11} &= 66 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{8} + x_{9} + x_{10} &= 82 \\
+x_{0} + x_{1} + x_{3} + x_{6} + x_{10} &= 38 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} &= 69 \\
+x_{4} + x_{5} + x_{9} &= 36 \\
+x_{3} + x_{4} + x_{6} + x_{10} + x_{11} &= 56 \\
+x_{0} + x_{3} + x_{4} + x_{8} + x_{10} &= 33 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 5 \\
+x_{2} &= 20 \\
+x_{3} &= 15 \\
+x_{4} &= 7 \\
+x_{5} &= 12 \\
+x_{6} &= 15 \\
+x_{7} &= 4 \\
+x_{8} &= 3 \\
+x_{9} &= 17 \\
+x_{10} &= 3 \\
+x_{11} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 117\\
+
+% Machine 27
+\subsection*{Machine 27}
+\textbf{Pattern:} \texttt{[...#....#.]}\\
+\textbf{Targets:} $\{155,173,181,30,31,27,159,146,173,14\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,4,8\}$
+\item $x_{1}$ affects $\{0,4,8,9\}$
+\item $x_{2}$ affects $\{0,1,2,3,6,7,8\}$
+\item $x_{3}$ affects $\{0,1,2,4,6,8\}$
+\item $x_{4}$ affects $\{0,1,3,4,9\}$
+\item $x_{5}$ affects $\{2,5\}$
+\item $x_{6}$ affects $\{1,2,5\}$
+\item $x_{7}$ affects $\{0,1,2,6,7,8\}$
+\item $x_{8}$ affects $\{3,5,6,7,8,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{4} + x_{7} &= 155 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 173 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 181 \\
+x_{2} + x_{4} + x_{8} &= 30 \\
+x_{0} + x_{1} + x_{3} + x_{4} &= 31 \\
+x_{5} + x_{6} + x_{8} &= 27 \\
+x_{2} + x_{3} + x_{7} + x_{8} &= 159 \\
+x_{2} + x_{7} + x_{8} &= 146 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{7} + x_{8} &= 173 \\
+x_{1} + x_{4} + x_{8} &= 14 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 1 \\
+x_{2} &= 17 \\
+x_{3} &= 13 \\
+x_{4} &= 4 \\
+x_{5} &= 12 \\
+x_{6} &= 6 \\
+x_{7} &= 120 \\
+x_{8} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 195\\
+
+% Machine 28
+\subsection*{Machine 28}
+\textbf{Pattern:} \texttt{[###.##]}\\
+\textbf{Targets:} $\{55,38,37,30,51,20\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4\}$
+\item $x_{1}$ affects $\{0,1,2,4\}$
+\item $x_{2}$ affects $\{0,1,2,3,4\}$
+\item $x_{3}$ affects $\{0,5\}$
+\item $x_{4}$ affects $\{0,3\}$
+\item $x_{5}$ affects $\{0,1,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} &= 55 \\
+x_{1} + x_{2} + x_{5} &= 38 \\
+x_{0} + x_{1} + x_{2} &= 37 \\
+x_{2} + x_{4} &= 30 \\
+x_{0} + x_{1} + x_{2} + x_{5} &= 51 \\
+x_{3} + x_{5} &= 20 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 5 \\
+x_{2} &= 19 \\
+x_{3} &= 6 \\
+x_{4} &= 11 \\
+x_{5} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 68\\
+
+% Machine 29
+\subsection*{Machine 29}
+\textbf{Pattern:} \texttt{[..#.]}\\
+\textbf{Targets:} $\{25,25,7,39\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3\}$
+\item $x_{1}$ affects $\{2,3\}$
+\item $x_{2}$ affects $\{0,3\}$
+\item $x_{3}$ affects $\{0,1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{3} &= 25 \\
+x_{0} + x_{3} &= 25 \\
+x_{1} + x_{3} &= 7 \\
+x_{0} + x_{1} + x_{2} &= 39 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 1 \\
+x_{2} &= 19 \\
+x_{3} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 45\\
+
+% Machine 30
+\subsection*{Machine 30}
+\textbf{Pattern:} \texttt{[#..#####..]}\\
+\textbf{Targets:} $\{235,63,64,215,210,210,233,198,203,62\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,6,8,9\}$
+\item $x_{1}$ affects $\{0,1,2,6\}$
+\item $x_{2}$ affects $\{0,2,3,4,5\}$
+\item $x_{3}$ affects $\{0,2,3,8\}$
+\item $x_{4}$ affects $\{1,3,4,5,7,8,9\}$
+\item $x_{5}$ affects $\{0,4,5,6,7,9\}$
+\item $x_{6}$ affects $\{0,1,2,4,5,7,8,9\}$
+\item $x_{7}$ affects $\{0,2,6,7\}$
+\item $x_{8}$ affects $\{0,3,4,5,6,7,8\}$
+\item $x_{9}$ affects $\{1,2,3,4,5,6,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} + x_{8} &= 235 \\
+x_{0} + x_{1} + x_{4} + x_{6} + x_{9} &= 63 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{6} + x_{7} + x_{9} &= 64 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{8} + x_{9} &= 215 \\
+x_{2} + x_{4} + x_{5} + x_{6} + x_{8} + x_{9} &= 210 \\
+x_{2} + x_{4} + x_{5} + x_{6} + x_{8} + x_{9} &= 210 \\
+x_{0} + x_{1} + x_{5} + x_{7} + x_{8} + x_{9} &= 233 \\
+x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 198 \\
+x_{0} + x_{3} + x_{4} + x_{6} + x_{8} &= 203 \\
+x_{0} + x_{4} + x_{5} + x_{6} + x_{9} &= 62 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 24 \\
+x_{1} &= 16 \\
+x_{2} &= 7 \\
+x_{4} &= 10 \\
+x_{5} &= 15 \\
+x_{6} &= 4 \\
+x_{7} &= 4 \\
+x_{8} &= 165 \\
+x_{9} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 254\\
+
+% Machine 31
+\subsection*{Machine 31}
+\textbf{Pattern:} \texttt{[#.#.]}\\
+\textbf{Targets:} $\{0,31,19,7\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2\}$
+\item $x_{1}$ affects $\{3\}$
+\item $x_{2}$ affects $\{1,3\}$
+\item $x_{3}$ affects $\{2,3\}$
+\item $x_{4}$ affects $\{1\}$
+\item $x_{5}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{5} &= 0 \\
+x_{0} + x_{2} + x_{4} &= 31 \\
+x_{0} + x_{3} + x_{5} &= 19 \\
+x_{1} + x_{2} + x_{3} &= 7 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{2} &= 7 \\
+x_{4} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 31\\
+
+% Machine 32
+\subsection*{Machine 32}
+\textbf{Pattern:} \texttt{[####.#...]}\\
+\textbf{Targets:} $\{68,72,54,53,47,55,46,86,59\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,5,7,8\}$
+\item $x_{1}$ affects $\{0,1,2,3,4,6,7\}$
+\item $x_{2}$ affects $\{0,1,2,5,6,7,8\}$
+\item $x_{3}$ affects $\{4,5,6,7\}$
+\item $x_{4}$ affects $\{0,1,3,4,5,6,7\}$
+\item $x_{5}$ affects $\{0,2,3,5,7,8\}$
+\item $x_{6}$ affects $\{0,1,2,4,5,7,8\}$
+\item $x_{7}$ affects $\{0,1,3,4,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} &= 68 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{6} + x_{7} &= 72 \\
+x_{1} + x_{2} + x_{5} + x_{6} &= 54 \\
+x_{0} + x_{1} + x_{4} + x_{5} + x_{7} &= 53 \\
+x_{1} + x_{3} + x_{4} + x_{6} + x_{7} &= 47 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} &= 55 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 46 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 86 \\
+x_{0} + x_{2} + x_{5} + x_{6} + x_{7} &= 59 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 12 \\
+x_{1} &= 19 \\
+x_{2} &= 19 \\
+x_{3} &= 6 \\
+x_{4} &= 2 \\
+x_{5} &= 8 \\
+x_{6} &= 8 \\
+x_{7} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 86\\
+
+% Machine 33
+\subsection*{Machine 33}
+\textbf{Pattern:} \texttt{[#....##...]}\\
+\textbf{Targets:} $\{101,70,74,72,97,85,95,84,122,108\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3,4,5,6,8,9\}$
+\item $x_{1}$ affects $\{0,1,2,4,7,8\}$
+\item $x_{2}$ affects $\{0,1,2,3,6,9\}$
+\item $x_{3}$ affects $\{0,2,4,5,7,8,9\}$
+\item $x_{4}$ affects $\{0,1,2,3,4,5,7,9\}$
+\item $x_{5}$ affects $\{0,6,8,9\}$
+\item $x_{6}$ affects $\{2,6,7,8\}$
+\item $x_{7}$ affects $\{0,4,5,6,7,8,9\}$
+\item $x_{8}$ affects $\{2,3,4,5,6,8,9\}$
+\item $x_{9}$ affects $\{9\}$
+\item $x_{10}$ affects $\{1,3,5,6,7,8,9\}$
+\item $x_{11}$ affects $\{0,1,2,3,4,5,6,8,9\}$
+\item $x_{12}$ affects $\{4,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{12} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{11} &= 101 \\
+x_{1} + x_{2} + x_{4} + x_{10} + x_{11} &= 70 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{8} + x_{11} &= 74 \\
+x_{0} + x_{2} + x_{4} + x_{8} + x_{10} + x_{11} &= 72 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{7} + x_{8} + x_{11} + x_{12} &= 97 \\
+x_{0} + x_{3} + x_{4} + x_{7} + x_{8} + x_{10} + x_{11} &= 85 \\
+x_{0} + x_{2} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} + x_{11} &= 95 \\
+x_{1} + x_{3} + x_{4} + x_{6} + x_{7} + x_{10} &= 84 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} + x_{11} + x_{12} &= 122 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} + x_{9} + x_{10} + x_{11} &= 108 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 16 \\
+x_{1} &= 32 \\
+x_{2} &= 10 \\
+x_{3} &= 5 \\
+x_{4} &= 8 \\
+x_{5} &= 12 \\
+x_{6} &= 1 \\
+x_{7} &= 18 \\
+x_{8} &= 18 \\
+x_{9} &= 1 \\
+x_{10} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 141\\
+
+% Machine 34
+\subsection*{Machine 34}
+\textbf{Pattern:} \texttt{[#.#.]}\\
+\textbf{Targets:} $\{16,2,16,2\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2\}$
+\item $x_{1}$ affects $\{1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{1} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} &= 16 \\
+x_{1} &= 2 \\
+x_{0} &= 16 \\
+x_{1} &= 2 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 16 \\
+x_{1} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 18\\
+
+% Machine 35
+\subsection*{Machine 35}
+\textbf{Pattern:} \texttt{[.....#.###]}\\
+\textbf{Targets:} $\{40,88,33,82,45,102,74,70,104,86\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,4,6,7,8,9\}$
+\item $x_{1}$ affects $\{0,1,4,6,7,8,9\}$
+\item $x_{2}$ affects $\{3,4,5,7,8,9\}$
+\item $x_{3}$ affects $\{2,6,7,9\}$
+\item $x_{4}$ affects $\{0,1,3,4,5,6,7,8\}$
+\item $x_{5}$ affects $\{0,2,3,5,7,8\}$
+\item $x_{6}$ affects $\{1,3,5,6,8\}$
+\item $x_{7}$ affects $\{1,2,5\}$
+\item $x_{8}$ affects $\{1,5,6,8,9\}$
+\item $x_{9}$ affects $\{0,6,8\}$
+\item $x_{10}$ affects $\{1,2,4,5,6,7,8,9\}$
+\item $x_{11}$ affects $\{1,3,5,7,8,9\}$
+\item $x_{12}$ affects $\{3,5,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{12} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{4} + x_{5} + x_{9} &= 40 \\
+x_{0} + x_{1} + x_{4} + x_{6} + x_{7} + x_{8} + x_{10} + x_{11} &= 88 \\
+x_{3} + x_{5} + x_{7} + x_{10} &= 33 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} + x_{11} + x_{12} &= 82 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{10} &= 45 \\
+x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} + x_{11} + x_{12} &= 102 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{6} + x_{8} + x_{9} + x_{10} &= 74 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{10} + x_{11} &= 70 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} + x_{8} + x_{9} + x_{10} + x_{11} &= 104 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{8} + x_{10} + x_{11} + x_{12} &= 86 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 22 \\
+x_{1} &= 8 \\
+x_{2} &= 5 \\
+x_{4} &= 10 \\
+x_{5} &= 22 \\
+x_{6} &= 3 \\
+x_{7} &= 11 \\
+x_{8} &= 31 \\
+x_{11} &= 3 \\
+x_{12} &= 17 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 132\\
+
+% Machine 36
+\subsection*{Machine 36}
+\textbf{Pattern:} \texttt{[##..#.##.#]}\\
+\textbf{Targets:} $\{54,86,82,66,99,89,51,43,103,104\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,4,5,6,8,9\}$
+\item $x_{1}$ affects $\{1,2,4,5,6,8,9\}$
+\item $x_{2}$ affects $\{0,1,4,5,7,8,9\}$
+\item $x_{3}$ affects $\{1,7,8,9\}$
+\item $x_{4}$ affects $\{1,3,4\}$
+\item $x_{5}$ affects $\{0,1,4,8,9\}$
+\item $x_{6}$ affects $\{0,2,3,4,5,6,7\}$
+\item $x_{7}$ affects $\{0,2,3,4,5,7,9\}$
+\item $x_{8}$ affects $\{1,2,3,5,6,8,9\}$
+\item $x_{9}$ affects $\{0,2,4,5,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{5} + x_{6} + x_{7} + x_{9} &= 54 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{8} &= 86 \\
+x_{0} + x_{1} + x_{6} + x_{7} + x_{8} + x_{9} &= 82 \\
+x_{0} + x_{4} + x_{6} + x_{7} + x_{8} &= 66 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{9} &= 99 \\
+x_{0} + x_{1} + x_{2} + x_{6} + x_{7} + x_{8} + x_{9} &= 89 \\
+x_{0} + x_{1} + x_{6} + x_{8} &= 51 \\
+x_{2} + x_{3} + x_{6} + x_{7} &= 43 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{8} + x_{9} &= 103 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{7} + x_{8} &= 104 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 16 \\
+x_{1} &= 15 \\
+x_{2} &= 7 \\
+x_{3} &= 18 \\
+x_{4} &= 14 \\
+x_{5} &= 14 \\
+x_{6} &= 2 \\
+x_{7} &= 16 \\
+x_{8} &= 18 \\
+x_{9} &= 15 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 135\\
+
+% Machine 37
+\subsection*{Machine 37}
+\textbf{Pattern:} \texttt{[.####.##.]}\\
+\textbf{Targets:} $\{55,57,164,26,178,37,69,26,156\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4,8\}$
+\item $x_{1}$ affects $\{2,3,6,7\}$
+\item $x_{2}$ affects $\{0,1,2,4,5,6,8\}$
+\item $x_{3}$ affects $\{6\}$
+\item $x_{4}$ affects $\{0,1,4,5,6\}$
+\item $x_{5}$ affects $\{0,1,2,3,4,6,7,8\}$
+\item $x_{6}$ affects $\{0,1,3,5,6,7,8\}$
+\item $x_{7}$ affects $\{1,4,6\}$
+\item $x_{8}$ affects $\{0,1,2,3,5,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{4} + x_{5} + x_{6} + x_{8} &= 55 \\
+x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 57 \\
+x_{0} + x_{1} + x_{2} + x_{5} + x_{8} &= 164 \\
+x_{1} + x_{5} + x_{6} + x_{8} &= 26 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{7} &= 178 \\
+x_{2} + x_{4} + x_{6} + x_{8} &= 37 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 69 \\
+x_{1} + x_{5} + x_{6} + x_{8} &= 26 \\
+x_{0} + x_{2} + x_{5} + x_{6} &= 156 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 121 \\
+x_{1} &= 8 \\
+x_{2} &= 17 \\
+x_{3} &= 4 \\
+x_{4} &= 20 \\
+x_{5} &= 18 \\
+x_{7} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 190\\
+
+% Machine 38
+\subsection*{Machine 38}
+\textbf{Pattern:} \texttt{[..##...]}\\
+\textbf{Targets:} $\{9,12,16,6,6,8,3\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,5\}$
+\item $x_{1}$ affects $\{1,2,6\}$
+\item $x_{2}$ affects $\{0,2,4,5,6\}$
+\item $x_{3}$ affects $\{0,1,2\}$
+\item $x_{4}$ affects $\{2,3\}$
+\item $x_{5}$ affects $\{0,1,3,4\}$
+\item $x_{6}$ affects $\{4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{5} &= 9 \\
+x_{0} + x_{1} + x_{3} + x_{5} &= 12 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} &= 16 \\
+x_{0} + x_{4} + x_{5} &= 6 \\
+x_{2} + x_{5} + x_{6} &= 6 \\
+x_{0} + x_{2} + x_{6} &= 8 \\
+x_{1} + x_{2} &= 3 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 2 \\
+x_{1} &= 3 \\
+x_{3} &= 7 \\
+x_{4} &= 4 \\
+x_{6} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 22\\
+
+% Machine 39
+\subsection*{Machine 39}
+\textbf{Pattern:} \texttt{[#.#.]}\\
+\textbf{Targets:} $\{8,9,17,9\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2\}$
+\item $x_{1}$ affects $\{1,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{1} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{1} &= 9 \\
+x_{0} + x_{1} &= 17 \\
+x_{1} &= 9 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{1} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 17\\
+
+% Machine 40
+\subsection*{Machine 40}
+\textbf{Pattern:} \texttt{[.####..#]}\\
+\textbf{Targets:} $\{27,183,174,183,18,44,56,177\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,6\}$
+\item $x_{1}$ affects $\{4\}$
+\item $x_{2}$ affects $\{1,3,5,6\}$
+\item $x_{3}$ affects $\{2,5,6,7\}$
+\item $x_{4}$ affects $\{0,5,6,7\}$
+\item $x_{5}$ affects $\{1,2,3,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{4} &= 27 \\
+x_{0} + x_{2} + x_{5} &= 183 \\
+x_{0} + x_{3} + x_{5} &= 174 \\
+x_{0} + x_{2} + x_{5} &= 183 \\
+x_{1} &= 18 \\
+x_{2} + x_{3} + x_{4} &= 44 \\
+x_{0} + x_{2} + x_{3} + x_{4} &= 56 \\
+x_{3} + x_{4} + x_{5} &= 177 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 12 \\
+x_{1} &= 18 \\
+x_{2} &= 19 \\
+x_{3} &= 10 \\
+x_{4} &= 15 \\
+x_{5} &= 152 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 226\\
+
+% Machine 41
+\subsection*{Machine 41}
+\textbf{Pattern:} \texttt{[#..#...]}\\
+\textbf{Targets:} $\{193,44,31,194,197,200,6\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1\}$
+\item $x_{1}$ affects $\{0,4\}$
+\item $x_{2}$ affects $\{0,3,4,5\}$
+\item $x_{3}$ affects $\{3,6\}$
+\item $x_{4}$ affects $\{1,2,3,4,5\}$
+\item $x_{5}$ affects $\{2,5\}$
+\item $x_{6}$ affects $\{0,1\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{6} &= 193 \\
+x_{0} + x_{4} + x_{6} &= 44 \\
+x_{4} + x_{5} &= 31 \\
+x_{2} + x_{3} + x_{4} &= 194 \\
+x_{1} + x_{2} + x_{4} &= 197 \\
+x_{2} + x_{4} + x_{5} &= 200 \\
+x_{3} &= 6 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{1} &= 9 \\
+x_{2} &= 169 \\
+x_{3} &= 6 \\
+x_{4} &= 19 \\
+x_{5} &= 12 \\
+x_{6} &= 15 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 240\\
+
+% Machine 42
+\subsection*{Machine 42}
+\textbf{Pattern:} \texttt{[.#.#.#..]}\\
+\textbf{Targets:} $\{10,47,55,29,46,53,78,57\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,4,5,6\}$
+\item $x_{1}$ affects $\{2,6,7\}$
+\item $x_{2}$ affects $\{2,3,4,5,6,7\}$
+\item $x_{3}$ affects $\{1,2,5,6\}$
+\item $x_{4}$ affects $\{1,6\}$
+\item $x_{5}$ affects $\{2,3,5\}$
+\item $x_{6}$ affects $\{1,2,4,5,6,7\}$
+\item $x_{7}$ affects $\{0,1,3,4,5,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{7} &= 10 \\
+x_{3} + x_{4} + x_{6} + x_{7} &= 47 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} &= 55 \\
+x_{2} + x_{5} + x_{7} &= 29 \\
+x_{0} + x_{2} + x_{6} + x_{7} &= 46 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 53 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 78 \\
+x_{1} + x_{2} + x_{6} + x_{7} &= 57 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 1 \\
+x_{1} &= 12 \\
+x_{2} &= 18 \\
+x_{3} &= 5 \\
+x_{4} &= 15 \\
+x_{5} &= 2 \\
+x_{6} &= 18 \\
+x_{7} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 80\\
+
+% Machine 43
+\subsection*{Machine 43}
+\textbf{Pattern:} \texttt{[.###...#.]}\\
+\textbf{Targets:} $\{28,201,55,48,36,214,6,68,66\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,5,7,8\}$
+\item $x_{1}$ affects $\{2,3,5,8\}$
+\item $x_{2}$ affects $\{1,3,4,5,6\}$
+\item $x_{3}$ affects $\{1,5\}$
+\item $x_{4}$ affects $\{0,1,2,4,5,7,8\}$
+\item $x_{5}$ affects $\{1,4\}$
+\item $x_{6}$ affects $\{1,2,3,4,5,6,7,8\}$
+\item $x_{7}$ affects $\{7\}$
+\item $x_{8}$ affects $\{0,1,2,3,5,7,8\}$
+\item $x_{9}$ affects $\{7,8\}$
+\item $x_{10}$ affects $\{4,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{4} + x_{8} &= 28 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{8} &= 201 \\
+x_{0} + x_{1} + x_{4} + x_{6} + x_{8} &= 55 \\
+x_{0} + x_{1} + x_{2} + x_{6} + x_{8} &= 48 \\
+x_{2} + x_{4} + x_{5} + x_{6} + x_{10} &= 36 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{8} &= 214 \\
+x_{2} + x_{6} &= 6 \\
+x_{0} + x_{4} + x_{6} + x_{7} + x_{8} + x_{9} + x_{10} &= 68 \\
+x_{0} + x_{1} + x_{4} + x_{6} + x_{8} + x_{9} + x_{10} &= 66 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 23 \\
+x_{2} &= 2 \\
+x_{3} &= 157 \\
+x_{4} &= 9 \\
+x_{5} &= 10 \\
+x_{6} &= 4 \\
+x_{7} &= 2 \\
+x_{8} &= 19 \\
+x_{10} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 237\\
+
+% Machine 44
+\subsection*{Machine 44}
+\textbf{Pattern:} \texttt{[##...##.#]}\\
+\textbf{Targets:} $\{45,26,23,34,26,35,36,28,6\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,4,5,7\}$
+\item $x_{1}$ affects $\{0,3,5,6\}$
+\item $x_{2}$ affects $\{0,1,2,4,7\}$
+\item $x_{3}$ affects $\{0,2,4,5,6,7,8\}$
+\item $x_{4}$ affects $\{3,5,6\}$
+\item $x_{5}$ affects $\{0,1,2,3,4,6,7,8\}$
+\item $x_{6}$ affects $\{0,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} &= 45 \\
+x_{0} + x_{2} + x_{5} &= 26 \\
+x_{2} + x_{3} + x_{5} &= 23 \\
+x_{1} + x_{4} + x_{5} &= 34 \\
+x_{0} + x_{2} + x_{3} + x_{5} &= 26 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{6} &= 35 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{6} &= 36 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} &= 28 \\
+x_{3} + x_{5} + x_{6} &= 6 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 3 \\
+x_{1} &= 17 \\
+x_{2} &= 19 \\
+x_{4} &= 13 \\
+x_{5} &= 4 \\
+x_{6} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 58\\
+
+% Machine 45
+\subsection*{Machine 45}
+\textbf{Pattern:} \texttt{[##.######]}\\
+\textbf{Targets:} $\{56,59,32,80,49,61,93,62,78\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,4,6,7,8\}$
+\item $x_{1}$ affects $\{1,3,4,5,6,7,8\}$
+\item $x_{2}$ affects $\{0\}$
+\item $x_{3}$ affects $\{0,1,3,4,6,7,8\}$
+\item $x_{4}$ affects $\{1,2,6,7\}$
+\item $x_{5}$ affects $\{0,3,5,6,8\}$
+\item $x_{6}$ affects $\{0,1,3,5,6\}$
+\item $x_{7}$ affects $\{2,5,6,7,8\}$
+\item $x_{8}$ affects $\{1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{3} + x_{5} + x_{6} &= 56 \\
+x_{1} + x_{3} + x_{4} + x_{6} + x_{8} &= 59 \\
+x_{0} + x_{4} + x_{7} + x_{8} &= 32 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} &= 80 \\
+x_{0} + x_{1} + x_{3} &= 49 \\
+x_{1} + x_{5} + x_{6} + x_{7} &= 61 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 93 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{7} &= 62 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{7} &= 78 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 12 \\
+x_{1} &= 17 \\
+x_{2} &= 5 \\
+x_{3} &= 20 \\
+x_{5} &= 16 \\
+x_{6} &= 15 \\
+x_{7} &= 13 \\
+x_{8} &= 7 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 105\\
+
+% Machine 46
+\subsection*{Machine 46}
+\textbf{Pattern:} \texttt{[...###.]}\\
+\textbf{Targets:} $\{41,34,32,42,33,49,16\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,4,5\}$
+\item $x_{1}$ affects $\{0,1,2\}$
+\item $x_{2}$ affects $\{0,1,3,5,6\}$
+\item $x_{3}$ affects $\{0,4,5\}$
+\item $x_{4}$ affects $\{2,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} &= 41 \\
+x_{0} + x_{1} + x_{2} &= 34 \\
+x_{0} + x_{1} + x_{4} &= 32 \\
+x_{0} + x_{2} + x_{4} &= 42 \\
+x_{0} + x_{3} + x_{4} &= 33 \\
+x_{0} + x_{2} + x_{3} + x_{4} &= 49 \\
+x_{2} &= 16 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 12 \\
+x_{1} &= 6 \\
+x_{2} &= 16 \\
+x_{3} &= 7 \\
+x_{4} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 55\\
+
+% Machine 47
+\subsection*{Machine 47}
+\textbf{Pattern:} \texttt{[#...#]}\\
+\textbf{Targets:} $\{163,143,55,143,161\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4\}$
+\item $x_{1}$ affects $\{0,2\}$
+\item $x_{2}$ affects $\{0,1,3,4\}$
+\item $x_{3}$ affects $\{0,1,2,3\}$
+\item $x_{4}$ affects $\{4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} &= 163 \\
+x_{2} + x_{3} &= 143 \\
+x_{0} + x_{1} + x_{3} &= 55 \\
+x_{2} + x_{3} &= 143 \\
+x_{0} + x_{2} + x_{4} &= 161 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 26 \\
+x_{1} &= 20 \\
+x_{2} &= 134 \\
+x_{3} &= 9 \\
+x_{4} &= 1 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 190\\
+
+% Machine 48
+\subsection*{Machine 48}
+\textbf{Pattern:} \texttt{[..#.....##]}\\
+\textbf{Targets:} $\{77,32,34,53,46,53,36,48,51,80\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,4,8,9\}$
+\item $x_{1}$ affects $\{0,3,4,5,7,9\}$
+\item $x_{2}$ affects $\{2,3,5,6,8,9\}$
+\item $x_{3}$ affects $\{1,5,8,9\}$
+\item $x_{4}$ affects $\{0,7\}$
+\item $x_{5}$ affects $\{0,4,9\}$
+\item $x_{6}$ affects $\{0,1,2,5,6,7,8,9\}$
+\item $x_{7}$ affects $\{0,1,5,6,7,8\}$
+\item $x_{8}$ affects $\{1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{4} + x_{5} + x_{6} + x_{7} &= 77 \\
+x_{3} + x_{6} + x_{7} + x_{8} &= 32 \\
+x_{2} + x_{6} &= 34 \\
+x_{1} + x_{2} + x_{8} &= 53 \\
+x_{0} + x_{1} + x_{5} &= 46 \\
+x_{1} + x_{2} + x_{3} + x_{6} + x_{7} &= 53 \\
+x_{2} + x_{6} + x_{7} &= 36 \\
+x_{1} + x_{4} + x_{6} + x_{7} &= 48 \\
+x_{0} + x_{2} + x_{3} + x_{6} + x_{7} &= 51 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} &= 80 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 15 \\
+x_{1} &= 17 \\
+x_{2} &= 20 \\
+x_{4} &= 15 \\
+x_{5} &= 14 \\
+x_{6} &= 14 \\
+x_{7} &= 2 \\
+x_{8} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 113\\
+
+% Machine 49
+\subsection*{Machine 49}
+\textbf{Pattern:} \texttt{[.##..]}\\
+\textbf{Targets:} $\{25,23,15,16,20\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,4\}$
+\item $x_{1}$ affects $\{1,2\}$
+\item $x_{2}$ affects $\{0,3\}$
+\item $x_{3}$ affects $\{0\}$
+\item $x_{4}$ affects $\{4\}$
+\item $x_{5}$ affects $\{1,4\}$
+\item $x_{6}$ affects $\{1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{3} &= 25 \\
+x_{0} + x_{1} + x_{5} + x_{6} &= 23 \\
+x_{0} + x_{1} &= 15 \\
+x_{2} + x_{6} &= 16 \\
+x_{0} + x_{4} + x_{5} &= 20 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 15 \\
+x_{2} &= 13 \\
+x_{3} &= 12 \\
+x_{5} &= 5 \\
+x_{6} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 48\\
+
+% Machine 50
+\subsection*{Machine 50}
+\textbf{Pattern:} \texttt{[#.#..]}\\
+\textbf{Targets:} $\{53,58,53,17,50\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,4\}$
+\item $x_{1}$ affects $\{1\}$
+\item $x_{2}$ affects $\{0,2,4\}$
+\item $x_{3}$ affects $\{0,1,2\}$
+\item $x_{4}$ affects $\{1,2,3,4\}$
+\item $x_{5}$ affects $\{1,4\}$
+\item $x_{6}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{6} &= 53 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} &= 58 \\
+x_{2} + x_{3} + x_{4} + x_{6} &= 53 \\
+x_{4} &= 17 \\
+x_{0} + x_{2} + x_{4} + x_{5} &= 50 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 17 \\
+x_{2} &= 14 \\
+x_{3} &= 22 \\
+x_{4} &= 17 \\
+x_{5} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 72\\
+
+% Machine 51
+\subsection*{Machine 51}
+\textbf{Pattern:} \texttt{[##..#]}\\
+\textbf{Targets:} $\{13,14,104,106,113\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0\}$
+\item $x_{1}$ affects $\{1,4\}$
+\item $x_{2}$ affects $\{1,2\}$
+\item $x_{3}$ affects $\{2,3,4\}$
+\item $x_{4}$ affects $\{0,1,3\}$
+\item $x_{5}$ affects $\{0,1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{4} + x_{5} &= 13 \\
+x_{1} + x_{2} + x_{4} + x_{5} &= 14 \\
+x_{2} + x_{3} + x_{5} &= 104 \\
+x_{3} + x_{4} &= 106 \\
+x_{1} + x_{3} &= 113 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 10 \\
+x_{3} &= 103 \\
+x_{4} &= 3 \\
+x_{5} &= 1 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 126\\
+
+% Machine 52
+\subsection*{Machine 52}
+\textbf{Pattern:} \texttt{[..#.#]}\\
+\textbf{Targets:} $\{37,14,34,14,22\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4\}$
+\item $x_{1}$ affects $\{0,1,2,3\}$
+\item $x_{2}$ affects $\{1,2,3\}$
+\item $x_{3}$ affects $\{0\}$
+\item $x_{4}$ affects $\{0,2,4\}$
+\item $x_{5}$ affects $\{4\}$
+\item $x_{6}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{4} + x_{6} &= 37 \\
+x_{1} + x_{2} &= 14 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{6} &= 34 \\
+x_{1} + x_{2} &= 14 \\
+x_{0} + x_{4} + x_{5} &= 22 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 14 \\
+x_{3} &= 3 \\
+x_{4} &= 20 \\
+x_{5} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 39\\
+
+% Machine 53
+\subsection*{Machine 53}
+\textbf{Pattern:} \texttt{[#..####]}\\
+\textbf{Targets:} $\{48,40,44,2,26,36,28\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,4,6\}$
+\item $x_{1}$ affects $\{0,1,3,4,5\}$
+\item $x_{2}$ affects $\{0,1,5\}$
+\item $x_{3}$ affects $\{0,1,2,6\}$
+\item $x_{4}$ affects $\{2,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} &= 48 \\
+x_{1} + x_{2} + x_{3} &= 40 \\
+x_{0} + x_{3} + x_{4} &= 44 \\
+x_{1} &= 2 \\
+x_{0} + x_{1} + x_{4} &= 26 \\
+x_{1} + x_{2} + x_{4} &= 36 \\
+x_{0} + x_{3} &= 28 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{1} &= 2 \\
+x_{2} &= 18 \\
+x_{3} &= 20 \\
+x_{4} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 64\\
+
+% Machine 54
+\subsection*{Machine 54}
+\textbf{Pattern:} \texttt{[###..##.]}\\
+\textbf{Targets:} $\{26,34,4,30,36,45,34,43\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,5,7\}$
+\item $x_{1}$ affects $\{0,3,4,5,6,7\}$
+\item $x_{2}$ affects $\{1,3,4,5,6,7\}$
+\item $x_{3}$ affects $\{0,1,4,5,6,7\}$
+\item $x_{4}$ affects $\{2\}$
+\item $x_{5}$ affects $\{0,2,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{5} &= 26 \\
+x_{0} + x_{2} + x_{3} &= 34 \\
+x_{4} + x_{5} &= 4 \\
+x_{0} + x_{1} + x_{2} + x_{5} &= 30 \\
+x_{1} + x_{2} + x_{3} + x_{5} &= 36 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} &= 45 \\
+x_{1} + x_{2} + x_{3} &= 34 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 43 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 9 \\
+x_{2} &= 10 \\
+x_{3} &= 15 \\
+x_{4} &= 2 \\
+x_{5} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 47\\
+
+% Machine 55
+\subsection*{Machine 55}
+\textbf{Pattern:} \texttt{[.#.##.###]}\\
+\textbf{Targets:} $\{56,74,43,28,199,191,14,25,41\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3,4\}$
+\item $x_{1}$ affects $\{0,1,2,4,5,6,7\}$
+\item $x_{2}$ affects $\{0,1,2,3,5,6,8\}$
+\item $x_{3}$ affects $\{4,5\}$
+\item $x_{4}$ affects $\{0,2,3,4,5,6,7,8\}$
+\item $x_{5}$ affects $\{0,1,2,3,5,6,7,8\}$
+\item $x_{6}$ affects $\{1\}$
+\item $x_{7}$ affects $\{0,1,8\}$
+\item $x_{8}$ affects $\{0,1,4,5,7,8\}$
+\item $x_{9}$ affects $\{0,1,2,3,4,5,6,8\}$
+\item $x_{10}$ affects $\{0,1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{4} + x_{5} + x_{7} + x_{8} + x_{9} + x_{10} &= 56 \\
+x_{0} + x_{1} + x_{2} + x_{5} + x_{6} + x_{7} + x_{8} + x_{9} + x_{10} &= 74 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{9} + x_{10} &= 43 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{9} &= 28 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{8} + x_{9} &= 199 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{8} + x_{9} &= 191 \\
+x_{1} + x_{2} + x_{4} + x_{5} + x_{9} &= 14 \\
+x_{1} + x_{4} + x_{5} + x_{8} &= 25 \\
+x_{2} + x_{4} + x_{5} + x_{7} + x_{8} + x_{9} &= 41 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 14 \\
+x_{2} &= 6 \\
+x_{3} &= 152 \\
+x_{6} &= 4 \\
+x_{7} &= 2 \\
+x_{8} &= 25 \\
+x_{9} &= 8 \\
+x_{10} &= 15 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 226\\
+
+% Machine 56
+\subsection*{Machine 56}
+\textbf{Pattern:} \texttt{[.##.#..#]}\\
+\textbf{Targets:} $\{49,26,43,17,18,29,17,6\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3,4,5,7\}$
+\item $x_{1}$ affects $\{0,2,6\}$
+\item $x_{2}$ affects $\{0,4,5\}$
+\item $x_{3}$ affects $\{0,1,2\}$
+\item $x_{4}$ affects $\{3,5\}$
+\item $x_{5}$ affects $\{1,2,4,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} &= 49 \\
+x_{0} + x_{3} + x_{5} &= 26 \\
+x_{0} + x_{1} + x_{3} + x_{5} &= 43 \\
+x_{0} + x_{4} &= 17 \\
+x_{0} + x_{2} + x_{5} &= 18 \\
+x_{0} + x_{2} + x_{4} &= 29 \\
+x_{1} &= 17 \\
+x_{0} + x_{5} &= 6 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{1} &= 17 \\
+x_{2} &= 12 \\
+x_{3} &= 20 \\
+x_{4} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 66\\
+
+% Machine 57
+\subsection*{Machine 57}
+\textbf{Pattern:} \texttt{[..##.#.]}\\
+\textbf{Targets:} $\{15,41,13,11,26,28,50\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,4,6\}$
+\item $x_{1}$ affects $\{1,2,6\}$
+\item $x_{2}$ affects $\{4,5,6\}$
+\item $x_{3}$ affects $\{0,1,5\}$
+\item $x_{4}$ affects $\{3,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} &= 15 \\
+x_{0} + x_{1} + x_{3} &= 41 \\
+x_{1} &= 13 \\
+x_{4} &= 11 \\
+x_{0} + x_{2} &= 26 \\
+x_{2} + x_{3} &= 28 \\
+x_{0} + x_{1} + x_{2} + x_{4} &= 50 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 13 \\
+x_{2} &= 13 \\
+x_{3} &= 15 \\
+x_{4} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 65\\
+
+% Machine 58
+\subsection*{Machine 58}
+\textbf{Pattern:} \texttt{[.##.##..#]}\\
+\textbf{Targets:} $\{28,70,66,65,60,176,208,173,70\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6,7,8\}$
+\item $x_{1}$ affects $\{2,3,6,7\}$
+\item $x_{2}$ affects $\{1,2,3,5,6,7,8\}$
+\item $x_{3}$ affects $\{1,2,3,7,8\}$
+\item $x_{4}$ affects $\{2,3,4,5,6,7,8\}$
+\item $x_{5}$ affects $\{1,6\}$
+\item $x_{6}$ affects $\{0,1,2,6\}$
+\item $x_{7}$ affects $\{1,3,4,5,6,8\}$
+\item $x_{8}$ affects $\{5,6,7\}$
+\item $x_{9}$ affects $\{2,4,5,8\}$
+\item $x_{10}$ affects $\{3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{6} &= 28 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 70 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{9} &= 66 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{7} + x_{10} &= 65 \\
+x_{0} + x_{4} + x_{7} + x_{9} + x_{10} &= 60 \\
+x_{2} + x_{4} + x_{7} + x_{8} + x_{9} &= 176 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 208 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{8} &= 173 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{7} + x_{9} &= 70 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 15 \\
+x_{1} &= 1 \\
+x_{2} &= 20 \\
+x_{4} &= 16 \\
+x_{5} &= 19 \\
+x_{6} &= 13 \\
+x_{7} &= 3 \\
+x_{8} &= 121 \\
+x_{9} &= 16 \\
+x_{10} &= 10 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 234\\
+
+% Machine 59
+\subsection*{Machine 59}
+\textbf{Pattern:} \texttt{[..#..#..#.]}\\
+\textbf{Targets:} $\{12,21,32,30,47,35,37,58,44,38\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,5,6,9\}$
+\item $x_{1}$ affects $\{0,1,2,4,5,7,8,9\}$
+\item $x_{2}$ affects $\{2,4,7,8,9\}$
+\item $x_{3}$ affects $\{0,2,3,5,7,8\}$
+\item $x_{4}$ affects $\{2,3,4,5,6\}$
+\item $x_{5}$ affects $\{5,6,7,8\}$
+\item $x_{6}$ affects $\{1,3,6,7\}$
+\item $x_{7}$ affects $\{4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} &= 12 \\
+x_{1} + x_{6} &= 21 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 32 \\
+x_{0} + x_{3} + x_{4} + x_{6} &= 30 \\
+x_{1} + x_{2} + x_{4} + x_{7} &= 47 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} &= 35 \\
+x_{0} + x_{4} + x_{5} + x_{6} &= 37 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} &= 58 \\
+x_{1} + x_{2} + x_{3} + x_{5} &= 44 \\
+x_{0} + x_{1} + x_{2} &= 38 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 11 \\
+x_{1} &= 7 \\
+x_{2} &= 20 \\
+x_{3} &= 5 \\
+x_{5} &= 12 \\
+x_{6} &= 14 \\
+x_{7} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 89\\
+
+% Machine 60
+\subsection*{Machine 60}
+\textbf{Pattern:} \texttt{[#....##.##]}\\
+\textbf{Targets:} $\{26,40,19,39,47,21,28,30,26,26\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,6\}$
+\item $x_{1}$ affects $\{0,1,8,9\}$
+\item $x_{2}$ affects $\{0,2,3,4,5,7,8,9\}$
+\item $x_{3}$ affects $\{1,2,3,4,5,7,8,9\}$
+\item $x_{4}$ affects $\{4\}$
+\item $x_{5}$ affects $\{1,2,3,4,5,6,7,8,9\}$
+\item $x_{6}$ affects $\{0,4,7\}$
+\item $x_{7}$ affects $\{1,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{6} &= 26 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{7} &= 40 \\
+x_{2} + x_{3} + x_{5} &= 19 \\
+x_{0} + x_{2} + x_{3} + x_{5} &= 39 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 47 \\
+x_{2} + x_{3} + x_{5} + x_{7} &= 21 \\
+x_{0} + x_{5} &= 28 \\
+x_{2} + x_{3} + x_{5} + x_{6} &= 30 \\
+x_{1} + x_{2} + x_{3} + x_{5} &= 26 \\
+x_{1} + x_{2} + x_{3} + x_{5} &= 26 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 20 \\
+x_{1} &= 7 \\
+x_{2} &= 8 \\
+x_{3} &= 3 \\
+x_{4} &= 15 \\
+x_{5} &= 8 \\
+x_{6} &= 11 \\
+x_{7} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 74\\
+
+% Machine 61
+\subsection*{Machine 61}
+\textbf{Pattern:} \texttt{[...###.#]}\\
+\textbf{Targets:} $\{24,13,2,32,21,28,23,15\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,7\}$
+\item $x_{1}$ affects $\{1,4,5,7\}$
+\item $x_{2}$ affects $\{1,3\}$
+\item $x_{3}$ affects $\{3,6\}$
+\item $x_{4}$ affects $\{0,1,2,4,6,7\}$
+\item $x_{5}$ affects $\{0,5\}$
+\item $x_{6}$ affects $\{3,4,5,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{4} + x_{5} &= 24 \\
+x_{1} + x_{2} + x_{4} &= 13 \\
+x_{4} &= 2 \\
+x_{2} + x_{3} + x_{6} &= 32 \\
+x_{1} + x_{4} + x_{6} &= 21 \\
+x_{1} + x_{5} + x_{6} &= 28 \\
+x_{3} + x_{4} + x_{6} &= 23 \\
+x_{0} + x_{1} + x_{4} &= 15 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{2} &= 11 \\
+x_{3} &= 2 \\
+x_{4} &= 2 \\
+x_{5} &= 9 \\
+x_{6} &= 19 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 56\\
+
+% Machine 62
+\subsection*{Machine 62}
+\textbf{Pattern:} \texttt{[####.#]}\\
+\textbf{Targets:} $\{15,19,9,17,20,13\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,5\}$
+\item $x_{1}$ affects $\{1,2,4,5\}$
+\item $x_{2}$ affects $\{0,1,4\}$
+\item $x_{3}$ affects $\{1,3,4\}$
+\item $x_{4}$ affects $\{0,2,3,4,5\}$
+\item $x_{5}$ affects $\{0,3\}$
+\item $x_{6}$ affects $\{0,1,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} &= 15 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{6} &= 19 \\
+x_{0} + x_{1} + x_{4} &= 9 \\
+x_{0} + x_{3} + x_{4} + x_{5} &= 17 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 20 \\
+x_{0} + x_{1} + x_{4} + x_{6} &= 13 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 1 \\
+x_{1} &= 2 \\
+x_{2} &= 3 \\
+x_{3} &= 9 \\
+x_{4} &= 6 \\
+x_{5} &= 1 \\
+x_{6} &= 4 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 26\\
+
+% Machine 63
+\subsection*{Machine 63}
+\textbf{Pattern:} \texttt{[###.]}\\
+\textbf{Targets:} $\{16,16,10,6\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2\}$
+\item $x_{1}$ affects $\{0,1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{1} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} &= 16 \\
+x_{0} + x_{1} &= 16 \\
+x_{0} &= 10 \\
+x_{1} &= 6 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{1} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 16\\
+
+% Machine 64
+\subsection*{Machine 64}
+\textbf{Pattern:} \texttt{[.##.##.]}\\
+\textbf{Targets:} $\{19,24,2,37,33,11,20\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6\}$
+\item $x_{1}$ affects $\{1,2,6\}$
+\item $x_{2}$ affects $\{3,4\}$
+\item $x_{3}$ affects $\{0,1,3,5,6\}$
+\item $x_{4}$ affects $\{0,2,4,5,6\}$
+\item $x_{5}$ affects $\{1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{3} + x_{4} &= 19 \\
+x_{0} + x_{1} + x_{3} + x_{5} &= 24 \\
+x_{1} + x_{4} &= 2 \\
+x_{0} + x_{2} + x_{3} &= 37 \\
+x_{0} + x_{2} + x_{4} + x_{5} &= 33 \\
+x_{3} + x_{4} &= 11 \\
+x_{0} + x_{1} + x_{3} + x_{4} &= 20 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{1} &= 1 \\
+x_{2} &= 19 \\
+x_{3} &= 10 \\
+x_{4} &= 1 \\
+x_{5} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 44\\
+
+% Machine 65
+\subsection*{Machine 65}
+\textbf{Pattern:} \texttt{[..##.]}\\
+\textbf{Targets:} $\{23,74,19,17,38\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3\}$
+\item $x_{1}$ affects $\{1,4\}$
+\item $x_{2}$ affects $\{0,1,3\}$
+\item $x_{3}$ affects $\{1,2,4\}$
+\item $x_{4}$ affects $\{1\}$
+\item $x_{5}$ affects $\{0,1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{5} &= 23 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} &= 74 \\
+x_{0} + x_{3} &= 19 \\
+x_{0} + x_{2} &= 17 \\
+x_{1} + x_{3} + x_{5} &= 38 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 13 \\
+x_{2} &= 17 \\
+x_{3} &= 19 \\
+x_{4} &= 19 \\
+x_{5} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 74\\
+
+% Machine 66
+\subsection*{Machine 66}
+\textbf{Pattern:} \texttt{[.#.#..]}\\
+\textbf{Targets:} $\{16,33,47,62,63,16\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,4,5\}$
+\item $x_{1}$ affects $\{0,2,3,4\}$
+\item $x_{2}$ affects $\{1,2,3,4\}$
+\item $x_{3}$ affects $\{2,4\}$
+\item $x_{4}$ affects $\{1,3,5\}$
+\item $x_{5}$ affects $\{3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} &= 16 \\
+x_{0} + x_{2} + x_{4} &= 33 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 47 \\
+x_{1} + x_{2} + x_{4} + x_{5} &= 62 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} &= 63 \\
+x_{0} + x_{4} &= 16 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 3 \\
+x_{1} &= 16 \\
+x_{2} &= 17 \\
+x_{3} &= 11 \\
+x_{4} &= 13 \\
+x_{5} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 76\\
+
+% Machine 67
+\subsection*{Machine 67}
+\textbf{Pattern:} \texttt{[...###]}\\
+\textbf{Targets:} $\{22,47,52,15,62,18\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,4\}$
+\item $x_{1}$ affects $\{1,2\}$
+\item $x_{2}$ affects $\{0,4\}$
+\item $x_{3}$ affects $\{0,2,3\}$
+\item $x_{4}$ affects $\{0,1,4,5\}$
+\item $x_{5}$ affects $\{1,2,4\}$
+\item $x_{6}$ affects $\{1,2,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{3} + x_{4} &= 22 \\
+x_{1} + x_{4} + x_{5} + x_{6} &= 47 \\
+x_{1} + x_{3} + x_{5} + x_{6} &= 52 \\
+x_{0} + x_{3} &= 15 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} &= 62 \\
+x_{4} + x_{6} &= 18 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{2} &= 9 \\
+x_{3} &= 9 \\
+x_{4} &= 4 \\
+x_{5} &= 29 \\
+x_{6} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 71\\
+
+% Machine 68
+\subsection*{Machine 68}
+\textbf{Pattern:} \texttt{[.#.#..#]}\\
+\textbf{Targets:} $\{62,56,41,41,44,61,38\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,5,6\}$
+\item $x_{1}$ affects $\{0,1,4,6\}$
+\item $x_{2}$ affects $\{0,2,4,5\}$
+\item $x_{3}$ affects $\{1,4,5\}$
+\item $x_{4}$ affects $\{0,2,3,4,5\}$
+\item $x_{5}$ affects $\{1,2,3,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{4} &= 62 \\
+x_{0} + x_{1} + x_{3} + x_{5} &= 56 \\
+x_{2} + x_{4} + x_{5} &= 41 \\
+x_{0} + x_{4} + x_{5} &= 41 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 44 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} &= 61 \\
+x_{0} + x_{1} &= 38 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 19 \\
+x_{2} &= 19 \\
+x_{3} &= 1 \\
+x_{4} &= 5 \\
+x_{5} &= 17 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 80\\
+
+% Machine 69
+\subsection*{Machine 69}
+\textbf{Pattern:} \texttt{[.#...##]}\\
+\textbf{Targets:} $\{261,227,260,79,70,211,44\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,4,6\}$
+\item $x_{1}$ affects $\{0,2,3,4,5\}$
+\item $x_{2}$ affects $\{0,1,4,5,6\}$
+\item $x_{3}$ affects $\{0,1,2,3,5,6\}$
+\item $x_{4}$ affects $\{0,2,3,4\}$
+\item $x_{5}$ affects $\{1,2\}$
+\item $x_{6}$ affects $\{0,1,2,5\}$
+\item $x_{7}$ affects $\{0,3,4,6\}$
+\item $x_{8}$ affects $\{1\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 261 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} + x_{8} &= 227 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} + x_{6} &= 260 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{7} &= 79 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{7} &= 70 \\
+x_{1} + x_{2} + x_{3} + x_{6} &= 211 \\
+x_{0} + x_{2} + x_{3} + x_{7} &= 44 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 34 \\
+x_{1} &= 20 \\
+x_{3} &= 9 \\
+x_{4} &= 15 \\
+x_{6} &= 182 \\
+x_{7} &= 1 \\
+x_{8} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 263\\
+
+% Machine 70
+\subsection*{Machine 70}
+\textbf{Pattern:} \texttt{[.##..]}\\
+\textbf{Targets:} $\{20,31,15,32,48\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,4\}$
+\item $x_{1}$ affects $\{4\}$
+\item $x_{2}$ affects $\{0,1,2,4\}$
+\item $x_{3}$ affects $\{1,3,4\}$
+\item $x_{4}$ affects $\{1,2\}$
+\item $x_{5}$ affects $\{0,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{5} &= 20 \\
+x_{2} + x_{3} + x_{4} &= 31 \\
+x_{2} + x_{4} &= 15 \\
+x_{0} + x_{3} + x_{5} &= 32 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} &= 48 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 11 \\
+x_{1} &= 1 \\
+x_{2} &= 15 \\
+x_{3} &= 16 \\
+x_{5} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 48\\
+
+% Machine 71
+\subsection*{Machine 71}
+\textbf{Pattern:} \texttt{[..#.##.##.]}\\
+\textbf{Targets:} $\{100,80,97,70,87,100,95,118,50,75\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,4,5,6,7,8,9\}$
+\item $x_{1}$ affects $\{0,1,2,3,4,5,6,7,9\}$
+\item $x_{2}$ affects $\{1,4,5,6,7,9\}$
+\item $x_{3}$ affects $\{0,3,5,6,7\}$
+\item $x_{4}$ affects $\{0,1,4,5,7,8,9\}$
+\item $x_{5}$ affects $\{0,1,2,3,5,6,7\}$
+\item $x_{6}$ affects $\{2,4,6\}$
+\item $x_{7}$ affects $\{4,7\}$
+\item $x_{8}$ affects $\{0,1,2,3,4,5,7,8\}$
+\item $x_{9}$ affects $\{0,5,7,8,9\}$
+\item $x_{10}$ affects $\{0,1,2,3,4,7,9\}$
+\item $x_{11}$ affects $\{0,1,2,3,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{11} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} + x_{8} + x_{9} + x_{10} + x_{11} &= 100 \\
+x_{1} + x_{2} + x_{4} + x_{5} + x_{8} + x_{10} + x_{11} &= 80 \\
+x_{0} + x_{1} + x_{5} + x_{6} + x_{8} + x_{10} + x_{11} &= 97 \\
+x_{1} + x_{3} + x_{5} + x_{8} + x_{10} + x_{11} &= 70 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{6} + x_{7} + x_{8} + x_{10} &= 87 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{8} + x_{9} + x_{11} &= 100 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{11} &= 95 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} + x_{9} + x_{10} + x_{11} &= 118 \\
+x_{0} + x_{4} + x_{8} + x_{9} + x_{11} &= 50 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{9} + x_{10} &= 75 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 28 \\
+x_{1} &= 27 \\
+x_{2} &= 9 \\
+x_{3} &= 1 \\
+x_{4} &= 2 \\
+x_{5} &= 13 \\
+x_{7} &= 9 \\
+x_{8} &= 3 \\
+x_{10} &= 9 \\
+x_{11} &= 17 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 118\\
+
+% Machine 72
+\subsection*{Machine 72}
+\textbf{Pattern:} \texttt{[#..##.###]}\\
+\textbf{Targets:} $\{41,68,48,68,23,69,61,94,76\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,7\}$
+\item $x_{1}$ affects $\{0,1,5,6,7,8\}$
+\item $x_{2}$ affects $\{1,3,4,5,7,8\}$
+\item $x_{3}$ affects $\{0,1,2,3,5,6,7,8\}$
+\item $x_{4}$ affects $\{0,1,2,4,7,8\}$
+\item $x_{5}$ affects $\{0,1,3,4,5,8\}$
+\item $x_{6}$ affects $\{1,3,5,6,7,8\}$
+\item $x_{7}$ affects $\{2,3,4,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{4} + x_{5} &= 41 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} &= 68 \\
+x_{0} + x_{3} + x_{4} + x_{7} &= 48 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 68 \\
+x_{2} + x_{4} + x_{5} + x_{7} &= 23 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 69 \\
+x_{1} + x_{3} + x_{6} + x_{7} &= 61 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 94 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 76 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 18 \\
+x_{1} &= 19 \\
+x_{2} &= 8 \\
+x_{3} &= 15 \\
+x_{4} &= 7 \\
+x_{6} &= 19 \\
+x_{7} &= 8 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 94\\
+
+% Machine 73
+\subsection*{Machine 73}
+\textbf{Pattern:} \texttt{[###..##.]}\\
+\textbf{Targets:} $\{29,21,37,203,31,16,1,206\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,4,7\}$
+\item $x_{1}$ affects $\{0,2,7\}$
+\item $x_{2}$ affects $\{2,3,4\}$
+\item $x_{3}$ affects $\{1,2,3,5\}$
+\item $x_{4}$ affects $\{1,2,3,4\}$
+\item $x_{5}$ affects $\{1,4,6,7\}$
+\item $x_{6}$ affects $\{3,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} &= 29 \\
+x_{3} + x_{4} + x_{5} &= 21 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 37 \\
+x_{2} + x_{3} + x_{4} + x_{6} &= 203 \\
+x_{0} + x_{2} + x_{4} + x_{5} &= 31 \\
+x_{3} &= 16 \\
+x_{5} &= 1 \\
+x_{0} + x_{1} + x_{5} + x_{6} &= 206 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 10 \\
+x_{2} &= 7 \\
+x_{3} &= 16 \\
+x_{4} &= 4 \\
+x_{5} &= 1 \\
+x_{6} &= 176 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 233\\
+
+% Machine 74
+\subsection*{Machine 74}
+\textbf{Pattern:} \texttt{[#....###.]}\\
+\textbf{Targets:} $\{156,49,151,36,17,27,17,13,145\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,8\}$
+\item $x_{1}$ affects $\{2,3\}$
+\item $x_{2}$ affects $\{0,4\}$
+\item $x_{3}$ affects $\{1,2,8\}$
+\item $x_{4}$ affects $\{0,1,3,7\}$
+\item $x_{5}$ affects $\{0,4,5\}$
+\item $x_{6}$ affects $\{1,3,5,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{4} + x_{5} &= 156 \\
+x_{3} + x_{4} + x_{6} &= 49 \\
+x_{0} + x_{1} + x_{3} &= 151 \\
+x_{1} + x_{4} + x_{6} &= 36 \\
+x_{2} + x_{5} &= 17 \\
+x_{5} + x_{6} &= 27 \\
+x_{6} &= 17 \\
+x_{4} &= 13 \\
+x_{0} + x_{3} &= 145 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 126 \\
+x_{1} &= 6 \\
+x_{2} &= 7 \\
+x_{3} &= 19 \\
+x_{4} &= 13 \\
+x_{5} &= 10 \\
+x_{6} &= 17 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 198\\
+
+% Machine 75
+\subsection*{Machine 75}
+\textbf{Pattern:} \texttt{[.#..####]}\\
+\textbf{Targets:} $\{33,53,47,35,54,15,69,36\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,5,6\}$
+\item $x_{1}$ affects $\{2,4\}$
+\item $x_{2}$ affects $\{2,6,7\}$
+\item $x_{3}$ affects $\{1,3,4,5,6,7\}$
+\item $x_{4}$ affects $\{1,3,4,6,7\}$
+\item $x_{5}$ affects $\{0,1,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{5} &= 33 \\
+x_{0} + x_{3} + x_{4} + x_{5} &= 53 \\
+x_{0} + x_{1} + x_{2} &= 47 \\
+x_{0} + x_{3} + x_{4} &= 35 \\
+x_{1} + x_{3} + x_{4} + x_{5} &= 54 \\
+x_{0} + x_{3} &= 15 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} &= 69 \\
+x_{2} + x_{3} + x_{4} &= 36 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 15 \\
+x_{1} &= 16 \\
+x_{2} &= 16 \\
+x_{4} &= 20 \\
+x_{5} &= 18 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 85\\
+
+% Machine 76
+\subsection*{Machine 76}
+\textbf{Pattern:} \texttt{[#.##..]}\\
+\textbf{Targets:} $\{45,32,65,44,41,30\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,4\}$
+\item $x_{1}$ affects $\{0,1,2\}$
+\item $x_{2}$ affects $\{0,2,3\}$
+\item $x_{3}$ affects $\{4\}$
+\item $x_{4}$ affects $\{1,5\}$
+\item $x_{5}$ affects $\{0,2,3,5\}$
+\item $x_{6}$ affects $\{2,4\}$
+\item $x_{7}$ affects $\{0,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{5} + x_{7} &= 45 \\
+x_{1} + x_{4} &= 32 \\
+x_{0} + x_{1} + x_{2} + x_{5} + x_{6} &= 65 \\
+x_{0} + x_{2} + x_{5} + x_{7} &= 44 \\
+x_{0} + x_{3} + x_{6} + x_{7} &= 41 \\
+x_{4} + x_{5} + x_{7} &= 30 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 22 \\
+x_{1} &= 23 \\
+x_{2} &= 1 \\
+x_{3} &= 1 \\
+x_{4} &= 9 \\
+x_{5} &= 11 \\
+x_{6} &= 8 \\
+x_{7} &= 10 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 85\\
+
+% Machine 77
+\subsection*{Machine 77}
+\textbf{Pattern:} \texttt{[#..#.###]}\\
+\textbf{Targets:} $\{28,20,43,14,32,29,16,16\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,4\}$
+\item $x_{1}$ affects $\{0,1,3\}$
+\item $x_{2}$ affects $\{0,1,3,4,6,7\}$
+\item $x_{3}$ affects $\{5,6\}$
+\item $x_{4}$ affects $\{1\}$
+\item $x_{5}$ affects $\{4,6,7\}$
+\item $x_{6}$ affects $\{0,2,3,5\}$
+\item $x_{7}$ affects $\{2,3,4,5\}$
+\item $x_{8}$ affects $\{0,2,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{6} + x_{8} &= 28 \\
+x_{1} + x_{2} + x_{4} &= 20 \\
+x_{0} + x_{6} + x_{7} + x_{8} &= 43 \\
+x_{1} + x_{2} + x_{6} + x_{7} &= 14 \\
+x_{0} + x_{2} + x_{5} + x_{7} &= 32 \\
+x_{3} + x_{6} + x_{7} + x_{8} &= 29 \\
+x_{2} + x_{3} + x_{5} &= 16 \\
+x_{2} + x_{5} &= 16 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 14 \\
+x_{2} &= 1 \\
+x_{4} &= 19 \\
+x_{5} &= 15 \\
+x_{6} &= 11 \\
+x_{7} &= 2 \\
+x_{8} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 78\\
+
+% Machine 78
+\subsection*{Machine 78}
+\textbf{Pattern:} \texttt{[....##.#.]}\\
+\textbf{Targets:} $\{33,23,45,8,46,38,47,23,19\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3,4,7\}$
+\item $x_{1}$ affects $\{0,1,2,4,5,6,8\}$
+\item $x_{2}$ affects $\{2,4,5,6,7\}$
+\item $x_{3}$ affects $\{0,3,4,7,8\}$
+\item $x_{4}$ affects $\{0,6\}$
+\item $x_{5}$ affects $\{1,2,4,5,6\}$
+\item $x_{6}$ affects $\{2,3,4,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{3} + x_{4} &= 33 \\
+x_{1} + x_{5} &= 23 \\
+x_{0} + x_{1} + x_{2} + x_{5} + x_{6} &= 45 \\
+x_{0} + x_{3} + x_{6} &= 8 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} &= 46 \\
+x_{1} + x_{2} + x_{5} &= 38 \\
+x_{1} + x_{2} + x_{4} + x_{5} &= 47 \\
+x_{0} + x_{2} + x_{3} + x_{6} &= 23 \\
+x_{1} + x_{3} &= 19 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 5 \\
+x_{1} &= 18 \\
+x_{2} &= 15 \\
+x_{3} &= 1 \\
+x_{4} &= 9 \\
+x_{5} &= 5 \\
+x_{6} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 55\\
+
+% Machine 79
+\subsection*{Machine 79}
+\textbf{Pattern:} \texttt{[#.##.##]}\\
+\textbf{Targets:} $\{91,67,38,63,31,58,44\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3\}$
+\item $x_{1}$ affects $\{1\}$
+\item $x_{2}$ affects $\{0,2,4,5\}$
+\item $x_{3}$ affects $\{0,1,3,6\}$
+\item $x_{4}$ affects $\{0,1,2,3,5\}$
+\item $x_{5}$ affects $\{0,1,5,6\}$
+\item $x_{6}$ affects $\{0,2,3,4,5\}$
+\item $x_{7}$ affects $\{0,3,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 91 \\
+x_{1} + x_{3} + x_{4} + x_{5} &= 67 \\
+x_{2} + x_{4} + x_{6} &= 38 \\
+x_{0} + x_{3} + x_{4} + x_{6} + x_{7} &= 63 \\
+x_{2} + x_{6} + x_{7} &= 31 \\
+x_{2} + x_{4} + x_{5} + x_{6} &= 58 \\
+x_{3} + x_{5} + x_{7} &= 44 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 16 \\
+x_{2} &= 8 \\
+x_{3} &= 1 \\
+x_{4} &= 30 \\
+x_{5} &= 20 \\
+x_{7} &= 23 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 107\\
+
+% Machine 80
+\subsection*{Machine 80}
+\textbf{Pattern:} \texttt{[###.##]}\\
+\textbf{Targets:} $\{150,12,120,30,138,138\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,5\}$
+\item $x_{1}$ affects $\{0,2,4,5\}$
+\item $x_{2}$ affects $\{0,1,3\}$
+\item $x_{3}$ affects $\{0,3,4,5\}$
+\item $x_{4}$ affects $\{0,1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} &= 150 \\
+x_{0} + x_{2} + x_{4} &= 12 \\
+x_{1} + x_{4} &= 120 \\
+x_{0} + x_{2} + x_{3} &= 30 \\
+x_{0} + x_{1} + x_{3} &= 138 \\
+x_{0} + x_{1} + x_{3} &= 138 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 108 \\
+x_{3} &= 30 \\
+x_{4} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 150\\
+
+% Machine 81
+\subsection*{Machine 81}
+\textbf{Pattern:} \texttt{[#.....##]}\\
+\textbf{Targets:} $\{22,23,64,63,33,26,47,77\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,4,5,6,7\}$
+\item $x_{1}$ affects $\{1,2\}$
+\item $x_{2}$ affects $\{1,2,3,6\}$
+\item $x_{3}$ affects $\{0,6,7\}$
+\item $x_{4}$ affects $\{1,2,3,4,7\}$
+\item $x_{5}$ affects $\{2,3,4,5,7\}$
+\item $x_{6}$ affects $\{7\}$
+\item $x_{7}$ affects $\{0,2,4,5,7\}$
+\item $x_{8}$ affects $\{3,4,7\}$
+\item $x_{9}$ affects $\{2,3,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} + x_{7} &= 22 \\
+x_{1} + x_{2} + x_{4} &= 23 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{7} + x_{9} &= 64 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{8} + x_{9} &= 63 \\
+x_{0} + x_{4} + x_{5} + x_{7} + x_{8} &= 33 \\
+x_{0} + x_{5} + x_{7} &= 26 \\
+x_{0} + x_{2} + x_{3} &= 47 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} + x_{9} &= 77 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{2} &= 16 \\
+x_{3} &= 21 \\
+x_{4} &= 7 \\
+x_{5} &= 15 \\
+x_{6} &= 8 \\
+x_{7} &= 1 \\
+x_{9} &= 15 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 93\\
+
+% Machine 82
+\subsection*{Machine 82}
+\textbf{Pattern:} \texttt{[.#.#]}\\
+\textbf{Targets:} $\{40,26,13,24\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3\}$
+\item $x_{1}$ affects $\{0,1,2\}$
+\item $x_{2}$ affects $\{0,3\}$
+\item $x_{3}$ affects $\{0,1\}$
+\item $x_{4}$ affects $\{0\}$
+\item $x_{5}$ affects $\{1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{4} &= 40 \\
+x_{1} + x_{3} + x_{5} &= 26 \\
+x_{1} &= 13 \\
+x_{0} + x_{2} + x_{5} &= 24 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 13 \\
+x_{2} &= 19 \\
+x_{3} &= 8 \\
+x_{5} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 45\\
+
+% Machine 83
+\subsection*{Machine 83}
+\textbf{Pattern:} \texttt{[.###]}\\
+\textbf{Targets:} $\{49,50,27,26\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3\}$
+\item $x_{1}$ affects $\{0,2\}$
+\item $x_{2}$ affects $\{0,1\}$
+\item $x_{3}$ affects $\{0,1,3\}$
+\item $x_{4}$ affects $\{2,3\}$
+\item $x_{5}$ affects $\{1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} &= 49 \\
+x_{2} + x_{3} + x_{5} &= 50 \\
+x_{1} + x_{4} + x_{5} &= 27 \\
+x_{0} + x_{3} + x_{4} &= 26 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 13 \\
+x_{2} &= 10 \\
+x_{3} &= 26 \\
+x_{5} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 63\\
+
+% Machine 84
+\subsection*{Machine 84}
+\textbf{Pattern:} \texttt{[#.###]}\\
+\textbf{Targets:} $\{14,2,13,16,13\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3,4\}$
+\item $x_{1}$ affects $\{0,2,3,4\}$
+\item $x_{2}$ affects $\{0,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} &= 14 \\
+x_{0} &= 2 \\
+x_{0} + x_{1} &= 13 \\
+x_{0} + x_{1} + x_{2} &= 16 \\
+x_{0} + x_{1} &= 13 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 2 \\
+x_{1} &= 11 \\
+x_{2} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 16\\
+
+% Machine 85
+\subsection*{Machine 85}
+\textbf{Pattern:} \texttt{[.##.]}\\
+\textbf{Targets:} $\{35,158,30,18\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3\}$
+\item $x_{1}$ affects $\{1,3\}$
+\item $x_{2}$ affects $\{0,1,3\}$
+\item $x_{3}$ affects $\{1\}$
+\item $x_{4}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{4} &= 35 \\
+x_{1} + x_{2} + x_{3} &= 158 \\
+x_{0} + x_{4} &= 30 \\
+x_{0} + x_{1} + x_{2} &= 18 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 13 \\
+x_{2} &= 5 \\
+x_{3} &= 140 \\
+x_{4} &= 30 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 188\\
+
+% Machine 86
+\subsection*{Machine 86}
+\textbf{Pattern:} \texttt{[#..##]}\\
+\textbf{Targets:} $\{169,14,161,156,150\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,4\}$
+\item $x_{1}$ affects $\{0,2\}$
+\item $x_{2}$ affects $\{0,4\}$
+\item $x_{3}$ affects $\{0,2,3,4\}$
+\item $x_{4}$ affects $\{0,1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{4} &= 169 \\
+x_{4} &= 14 \\
+x_{0} + x_{1} + x_{3} &= 161 \\
+x_{0} + x_{3} + x_{4} &= 156 \\
+x_{0} + x_{2} + x_{3} &= 150 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 14 \\
+x_{1} &= 19 \\
+x_{2} &= 8 \\
+x_{3} &= 128 \\
+x_{4} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 183\\
+
+% Machine 87
+\subsection*{Machine 87}
+\textbf{Pattern:} \texttt{[..###.#.##]}\\
+\textbf{Targets:} $\{59,58,68,84,101,62,85,85,111,80\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,4,5,7,8\}$
+\item $x_{1}$ affects $\{0,5,8,9\}$
+\item $x_{2}$ affects $\{4,5,6,7,8,9\}$
+\item $x_{3}$ affects $\{0,3,4,8,9\}$
+\item $x_{4}$ affects $\{2,4,7,9\}$
+\item $x_{5}$ affects $\{3,4,6,7,8,9\}$
+\item $x_{6}$ affects $\{1,2,3,4,6,7,8,9\}$
+\item $x_{7}$ affects $\{0,1,3,4,5,6,7,8\}$
+\item $x_{8}$ affects $\{0,1,4,5,6,8\}$
+\item $x_{9}$ affects $\{2,9\}$
+\item $x_{10}$ affects $\{2,3,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{3} + x_{7} + x_{8} &= 59 \\
+x_{0} + x_{6} + x_{7} + x_{8} &= 58 \\
+x_{0} + x_{4} + x_{6} + x_{9} + x_{10} &= 68 \\
+x_{3} + x_{5} + x_{6} + x_{7} + x_{10} &= 84 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 101 \\
+x_{0} + x_{1} + x_{2} + x_{7} + x_{8} + x_{10} &= 62 \\
+x_{2} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} &= 85 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{10} &= 85 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} &= 111 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{9} &= 80 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 1 \\
+x_{1} &= 7 \\
+x_{2} &= 1 \\
+x_{3} &= 18 \\
+x_{4} &= 17 \\
+x_{5} &= 7 \\
+x_{6} &= 24 \\
+x_{7} &= 15 \\
+x_{8} &= 18 \\
+x_{9} &= 6 \\
+x_{10} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 134\\
+
+% Machine 88
+\subsection*{Machine 88}
+\textbf{Pattern:} \texttt{[..#.####.]}\\
+\textbf{Targets:} $\{76,46,52,46,29,224,63,223,234\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6,7\}$
+\item $x_{1}$ affects $\{0,6\}$
+\item $x_{2}$ affects $\{0,2,5\}$
+\item $x_{3}$ affects $\{8\}$
+\item $x_{4}$ affects $\{2,7\}$
+\item $x_{5}$ affects $\{0,1,2,3,5,8\}$
+\item $x_{6}$ affects $\{0,1,2,3,5,6,7,8\}$
+\item $x_{7}$ affects $\{1,2,3,4,6,8\}$
+\item $x_{8}$ affects $\{5,7,8\}$
+\item $x_{9}$ affects $\{0,6,7\}$
+\item $x_{10}$ affects $\{0,1,3,4,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{5} + x_{6} + x_{9} + x_{10} &= 76 \\
+x_{0} + x_{5} + x_{6} + x_{7} + x_{10} &= 46 \\
+x_{2} + x_{4} + x_{5} + x_{6} + x_{7} &= 52 \\
+x_{0} + x_{5} + x_{6} + x_{7} + x_{10} &= 46 \\
+x_{0} + x_{7} + x_{10} &= 29 \\
+x_{2} + x_{5} + x_{6} + x_{8} + x_{10} &= 224 \\
+x_{0} + x_{1} + x_{6} + x_{7} + x_{9} + x_{10} &= 63 \\
+x_{0} + x_{4} + x_{6} + x_{8} + x_{9} + x_{10} &= 223 \\
+x_{3} + x_{5} + x_{6} + x_{7} + x_{8} + x_{10} &= 234 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{2} &= 22 \\
+x_{3} &= 23 \\
+x_{4} &= 4 \\
+x_{6} &= 17 \\
+x_{7} &= 9 \\
+x_{8} &= 165 \\
+x_{9} &= 17 \\
+x_{10} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 277\\
+
+% Machine 89
+\subsection*{Machine 89}
+\textbf{Pattern:} \texttt{[#.#.#.]}\\
+\textbf{Targets:} $\{22,221,214,201,194,221\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3\}$
+\item $x_{1}$ affects $\{0,1,3,5\}$
+\item $x_{2}$ affects $\{0,4,5\}$
+\item $x_{3}$ affects $\{1,2,5\}$
+\item $x_{4}$ affects $\{1,2,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} &= 22 \\
+x_{0} + x_{1} + x_{3} + x_{4} &= 221 \\
+x_{0} + x_{3} + x_{4} &= 214 \\
+x_{0} + x_{1} + x_{4} &= 201 \\
+x_{2} + x_{4} &= 194 \\
+x_{1} + x_{2} + x_{3} + x_{4} &= 221 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 15 \\
+x_{1} &= 7 \\
+x_{2} &= 15 \\
+x_{3} &= 20 \\
+x_{4} &= 179 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 236\\
+
+% Machine 90
+\subsection*{Machine 90}
+\textbf{Pattern:} \texttt{[##.###...#]}\\
+\textbf{Targets:} $\{12,43,64,59,37,64,73,63,47,50\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,5,6,9\}$
+\item $x_{1}$ affects $\{1,4,5,6,9\}$
+\item $x_{2}$ affects $\{0,2\}$
+\item $x_{3}$ affects $\{2,5,6,7,8,9\}$
+\item $x_{4}$ affects $\{2\}$
+\item $x_{5}$ affects $\{3,5,6,7,8\}$
+\item $x_{6}$ affects $\{1,2,3,4,6\}$
+\item $x_{7}$ affects $\{4,5,6,7\}$
+\item $x_{8}$ affects $\{1,2,3,4,7,8,9\}$
+\item $x_{9}$ affects $\{2,3,8\}$
+\item $x_{10}$ affects $\{0,2,3,4,6,7,8\}$
+\item $x_{11}$ affects $\{1,2,3,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{11} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{10} &= 12 \\
+x_{0} + x_{1} + x_{6} + x_{8} + x_{11} &= 43 \\
+x_{2} + x_{3} + x_{4} + x_{6} + x_{8} + x_{9} + x_{10} + x_{11} &= 64 \\
+x_{5} + x_{6} + x_{8} + x_{9} + x_{10} + x_{11} &= 59 \\
+x_{1} + x_{6} + x_{7} + x_{8} + x_{10} &= 37 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{7} &= 64 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} + x_{7} + x_{10} &= 73 \\
+x_{3} + x_{5} + x_{7} + x_{8} + x_{10} &= 63 \\
+x_{3} + x_{5} + x_{8} + x_{9} + x_{10} &= 47 \\
+x_{0} + x_{1} + x_{3} + x_{8} + x_{11} &= 50 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 4 \\
+x_{1} &= 4 \\
+x_{2} &= 12 \\
+x_{3} &= 16 \\
+x_{5} &= 23 \\
+x_{6} &= 9 \\
+x_{7} &= 17 \\
+x_{8} &= 7 \\
+x_{9} &= 1 \\
+x_{11} &= 19 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 112\\
+
+% Machine 91
+\subsection*{Machine 91}
+\textbf{Pattern:} \texttt{[.#.###]}\\
+\textbf{Targets:} $\{46,58,68,55,76,80\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,4,5\}$
+\item $x_{1}$ affects $\{0,2,5\}$
+\item $x_{2}$ affects $\{4,5\}$
+\item $x_{3}$ affects $\{2,4\}$
+\item $x_{4}$ affects $\{0,2,3,4,5\}$
+\item $x_{5}$ affects $\{2,3,5\}$
+\item $x_{6}$ affects $\{1,5\}$
+\item $x_{7}$ affects $\{0,1,2,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{4} + x_{7} &= 46 \\
+x_{0} + x_{6} + x_{7} &= 58 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{7} &= 68 \\
+x_{0} + x_{4} + x_{5} + x_{7} &= 55 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{7} &= 76 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} &= 80 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{2} &= 1 \\
+x_{3} &= 21 \\
+x_{4} &= 33 \\
+x_{5} &= 1 \\
+x_{6} &= 37 \\
+x_{7} &= 13 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 114\\
+
+% Machine 92
+\subsection*{Machine 92}
+\textbf{Pattern:} \texttt{[..#.###.##]}\\
+\textbf{Targets:} $\{59,60,53,58,79,39,72,94,67,57\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,6,7\}$
+\item $x_{1}$ affects $\{0,2,3,7\}$
+\item $x_{2}$ affects $\{0,3,4,5,7\}$
+\item $x_{3}$ affects $\{4,6,7,8,9\}$
+\item $x_{4}$ affects $\{0,1,4,5,6,7,8,9\}$
+\item $x_{5}$ affects $\{2,4,6\}$
+\item $x_{6}$ affects $\{1,3,6,7,9\}$
+\item $x_{7}$ affects $\{1,2,3,4,6,7,8,9\}$
+\item $x_{8}$ affects $\{0,1,2,3,4,5,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{4} + x_{8} &= 59 \\
+x_{0} + x_{4} + x_{6} + x_{7} + x_{8} &= 60 \\
+x_{1} + x_{5} + x_{7} + x_{8} &= 53 \\
+x_{1} + x_{2} + x_{6} + x_{7} + x_{8} &= 58 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} &= 79 \\
+x_{2} + x_{4} + x_{8} &= 39 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 72 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 94 \\
+x_{3} + x_{4} + x_{7} + x_{8} &= 67 \\
+x_{3} + x_{4} + x_{6} + x_{7} &= 57 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{1} &= 20 \\
+x_{2} &= 7 \\
+x_{3} &= 20 \\
+x_{4} &= 19 \\
+x_{5} &= 5 \\
+x_{6} &= 3 \\
+x_{7} &= 15 \\
+x_{8} &= 13 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 112\\
+
+% Machine 93
+\subsection*{Machine 93}
+\textbf{Pattern:} \texttt{[#####...]}\\
+\textbf{Targets:} $\{159,82,48,57,75,41,184,35\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,6\}$
+\item $x_{1}$ affects $\{2,3,4\}$
+\item $x_{2}$ affects $\{0,1,2,7\}$
+\item $x_{3}$ affects $\{1,3,4,5,6,7\}$
+\item $x_{4}$ affects $\{0,6\}$
+\item $x_{5}$ affects $\{2,3,6\}$
+\item $x_{6}$ affects $\{1,4,5,6\}$
+\item $x_{7}$ affects $\{2,3,5\}$
+\item $x_{8}$ affects $\{0,1,3,4,6\}$
+\item $x_{9}$ affects $\{0,1,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{4} + x_{8} + x_{9} &= 159 \\
+x_{0} + x_{2} + x_{3} + x_{6} + x_{8} + x_{9} &= 82 \\
+x_{1} + x_{2} + x_{5} + x_{7} &= 48 \\
+x_{1} + x_{3} + x_{5} + x_{7} + x_{8} &= 57 \\
+x_{1} + x_{3} + x_{6} + x_{8} + x_{9} &= 75 \\
+x_{3} + x_{6} + x_{7} &= 41 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} + x_{8} + x_{9} &= 184 \\
+x_{2} + x_{3} &= 35 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 6 \\
+x_{2} &= 13 \\
+x_{3} &= 22 \\
+x_{4} &= 102 \\
+x_{5} &= 13 \\
+x_{6} &= 3 \\
+x_{7} &= 16 \\
+x_{9} &= 44 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 219\\
+
+% Machine 94
+\subsection*{Machine 94}
+\textbf{Pattern:} \texttt{[.#...##]}\\
+\textbf{Targets:} $\{35,20,35,14,28,27,8\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,4,5,6\}$
+\item $x_{1}$ affects $\{0,2,4,5\}$
+\item $x_{2}$ affects $\{1,3\}$
+\item $x_{3}$ affects $\{0,2,3,4,6\}$
+\item $x_{4}$ affects $\{0,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{4} &= 35 \\
+x_{0} + x_{2} &= 20 \\
+x_{1} + x_{3} + x_{4} &= 35 \\
+x_{2} + x_{3} &= 14 \\
+x_{0} + x_{1} + x_{3} &= 28 \\
+x_{0} + x_{1} &= 27 \\
+x_{0} + x_{3} &= 8 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 7 \\
+x_{1} &= 20 \\
+x_{2} &= 13 \\
+x_{3} &= 1 \\
+x_{4} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 55\\
+
+% Machine 95
+\subsection*{Machine 95}
+\textbf{Pattern:} \texttt{[.....#]}\\
+\textbf{Targets:} $\{9,11,30,31,45,42\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2\}$
+\item $x_{1}$ affects $\{3,4,5\}$
+\item $x_{2}$ affects $\{2,4,5\}$
+\item $x_{3}$ affects $\{2,3\}$
+\item $x_{4}$ affects $\{0,1,3,4,5\}$
+\item $x_{5}$ affects $\{0,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{4} + x_{5} &= 9 \\
+x_{0} + x_{4} &= 11 \\
+x_{0} + x_{2} + x_{3} &= 30 \\
+x_{1} + x_{3} + x_{4} &= 31 \\
+x_{1} + x_{2} + x_{4} + x_{5} &= 45 \\
+x_{1} + x_{2} + x_{4} &= 42 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 5 \\
+x_{1} &= 18 \\
+x_{2} &= 18 \\
+x_{3} &= 7 \\
+x_{4} &= 6 \\
+x_{5} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 57\\
+
+% Machine 96
+\subsection*{Machine 96}
+\textbf{Pattern:} \texttt{[#.##..#..]}\\
+\textbf{Targets:} $\{84,21,42,87,40,50,45,31,31\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3,6,7,8\}$
+\item $x_{1}$ affects $\{0,3,6\}$
+\item $x_{2}$ affects $\{2,3,4,5,6\}$
+\item $x_{3}$ affects $\{3,4\}$
+\item $x_{4}$ affects $\{0,1,3\}$
+\item $x_{5}$ affects $\{0,3,4,5,7,8\}$
+\item $x_{6}$ affects $\{0,2,5\}$
+\item $x_{7}$ affects $\{0,1,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{4} + x_{5} + x_{6} + x_{7} &= 84 \\
+x_{4} + x_{7} &= 21 \\
+x_{0} + x_{2} + x_{6} &= 42 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} &= 87 \\
+x_{2} + x_{3} + x_{5} &= 40 \\
+x_{2} + x_{5} + x_{6} &= 50 \\
+x_{0} + x_{1} + x_{2} &= 45 \\
+x_{0} + x_{5} + x_{7} &= 31 \\
+x_{0} + x_{5} + x_{7} &= 31 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{1} &= 19 \\
+x_{2} &= 16 \\
+x_{3} &= 6 \\
+x_{4} &= 18 \\
+x_{5} &= 18 \\
+x_{6} &= 16 \\
+x_{7} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 106\\
+
+% Machine 97
+\subsection*{Machine 97}
+\textbf{Pattern:} \texttt{[#.#.#..#]}\\
+\textbf{Targets:} $\{32,41,9,16,32,10,15,21\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,5,6,7\}$
+\item $x_{1}$ affects $\{0,1,7\}$
+\item $x_{2}$ affects $\{3,4\}$
+\item $x_{3}$ affects $\{0,1,5,7\}$
+\item $x_{4}$ affects $\{1,2,4\}$
+\item $x_{5}$ affects $\{1,2,5,6\}$
+\item $x_{6}$ affects $\{0,1,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{6} &= 32 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{6} &= 41 \\
+x_{4} + x_{5} &= 9 \\
+x_{0} + x_{2} &= 16 \\
+x_{2} + x_{4} + x_{6} &= 32 \\
+x_{0} + x_{3} + x_{5} &= 10 \\
+x_{0} + x_{5} + x_{6} &= 15 \\
+x_{0} + x_{1} + x_{3} &= 21 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 15 \\
+x_{2} &= 16 \\
+x_{3} &= 6 \\
+x_{4} &= 5 \\
+x_{5} &= 4 \\
+x_{6} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 57\\
+
+% Machine 98
+\subsection*{Machine 98}
+\textbf{Pattern:} \texttt{[#.#.#.##.]}\\
+\textbf{Targets:} $\{28,42,49,61,45,80,55,36,38\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,5,6,7\}$
+\item $x_{1}$ affects $\{2,3,4,5,7,8\}$
+\item $x_{2}$ affects $\{0,3,5,6,7,8\}$
+\item $x_{3}$ affects $\{0,1,2,3,5,6\}$
+\item $x_{4}$ affects $\{2,3,4,5,6,8\}$
+\item $x_{5}$ affects $\{1,5\}$
+\item $x_{6}$ affects $\{1,2,3,4,5,6\}$
+\item $x_{7}$ affects $\{0,2,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{7} &= 28 \\
+x_{0} + x_{3} + x_{5} + x_{6} &= 42 \\
+x_{1} + x_{3} + x_{4} + x_{6} + x_{7} &= 49 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} &= 61 \\
+x_{1} + x_{4} + x_{6} + x_{7} &= 45 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} &= 80 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{6} &= 55 \\
+x_{0} + x_{1} + x_{2} &= 36 \\
+x_{1} + x_{2} + x_{4} &= 38 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{1} &= 14 \\
+x_{2} &= 12 \\
+x_{3} &= 4 \\
+x_{4} &= 12 \\
+x_{5} &= 11 \\
+x_{6} &= 17 \\
+x_{7} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 82\\
+
+% Machine 99
+\subsection*{Machine 99}
+\textbf{Pattern:} \texttt{[##....##.]}\\
+\textbf{Targets:} $\{42,45,53,210,25,42,71,43,47\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,6\}$
+\item $x_{1}$ affects $\{3\}$
+\item $x_{2}$ affects $\{1,3,5,6,7\}$
+\item $x_{3}$ affects $\{0,4,8\}$
+\item $x_{4}$ affects $\{1,4,5,8\}$
+\item $x_{5}$ affects $\{0,2,4,5,6,8\}$
+\item $x_{6}$ affects $\{0,1,2,6,7,8\}$
+\item $x_{7}$ affects $\{0,2,3,4,7,8\}$
+\item $x_{8}$ affects $\{2,6,7,8\}$
+\item $x_{9}$ affects $\{0,2,3,5,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} + x_{5} + x_{6} + x_{7} + x_{9} &= 42 \\
+x_{0} + x_{2} + x_{4} + x_{6} &= 45 \\
+x_{5} + x_{6} + x_{7} + x_{8} + x_{9} &= 53 \\
+x_{0} + x_{1} + x_{2} + x_{7} + x_{9} &= 210 \\
+x_{3} + x_{4} + x_{5} + x_{7} &= 25 \\
+x_{2} + x_{4} + x_{5} + x_{9} &= 42 \\
+x_{0} + x_{2} + x_{5} + x_{6} + x_{8} + x_{9} &= 71 \\
+x_{2} + x_{6} + x_{7} + x_{8} &= 43 \\
+x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 47 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 17 \\
+x_{1} &= 152 \\
+x_{2} &= 11 \\
+x_{3} &= 4 \\
+x_{4} &= 10 \\
+x_{5} &= 1 \\
+x_{6} &= 7 \\
+x_{7} &= 10 \\
+x_{8} &= 15 \\
+x_{9} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 247\\
+
+% Machine 100
+\subsection*{Machine 100}
+\textbf{Pattern:} \texttt{[.###]}\\
+\textbf{Targets:} $\{14,19,5,6\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3\}$
+\item $x_{1}$ affects $\{0,1\}$
+\item $x_{2}$ affects $\{1,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} &= 14 \\
+x_{0} + x_{1} + x_{2} &= 19 \\
+x_{2} &= 5 \\
+x_{0} + x_{2} &= 6 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 1 \\
+x_{1} &= 13 \\
+x_{2} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 19\\
+
+% Machine 101
+\subsection*{Machine 101}
+\textbf{Pattern:} \texttt{[##.#####]}\\
+\textbf{Targets:} $\{33,69,99,89,29,62,45,95\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3,4,5,6\}$
+\item $x_{1}$ affects $\{0,1,2,5,6,7\}$
+\item $x_{2}$ affects $\{0,1,3,4,6,7\}$
+\item $x_{3}$ affects $\{0,2,3,5,7\}$
+\item $x_{4}$ affects $\{2,3,5,6,7\}$
+\item $x_{5}$ affects $\{1,2,3,4,7\}$
+\item $x_{6}$ affects $\{1,3,7\}$
+\item $x_{7}$ affects $\{1,2,3,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} &= 33 \\
+x_{0} + x_{1} + x_{2} + x_{5} + x_{6} + x_{7} &= 69 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{5} + x_{7} &= 99 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 89 \\
+x_{0} + x_{2} + x_{5} &= 29 \\
+x_{0} + x_{1} + x_{3} + x_{4} &= 62 \\
+x_{0} + x_{1} + x_{2} + x_{4} &= 45 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} &= 95 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{1} &= 16 \\
+x_{3} &= 17 \\
+x_{4} &= 19 \\
+x_{5} &= 19 \\
+x_{6} &= 6 \\
+x_{7} &= 18 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 105\\
+
+% Machine 102
+\subsection*{Machine 102}
+\textbf{Pattern:} \texttt{[.#.###]}\\
+\textbf{Targets:} $\{4,19,34,33,19,19\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3\}$
+\item $x_{1}$ affects $\{1,3,4,5\}$
+\item $x_{2}$ affects $\{0,1,2,4,5\}$
+\item $x_{3}$ affects $\{1,2,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} &= 4 \\
+x_{1} + x_{2} + x_{3} &= 19 \\
+x_{0} + x_{2} + x_{3} &= 34 \\
+x_{0} + x_{1} + x_{3} &= 33 \\
+x_{1} + x_{2} + x_{3} &= 19 \\
+x_{1} + x_{2} + x_{3} &= 19 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 18 \\
+x_{1} &= 3 \\
+x_{2} &= 4 \\
+x_{3} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 37\\
+
+% Machine 103
+\subsection*{Machine 103}
+\textbf{Pattern:} \texttt{[#....]}\\
+\textbf{Targets:} $\{28,30,30,43,17\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3\}$
+\item $x_{1}$ affects $\{0,1,2,3\}$
+\item $x_{2}$ affects $\{3\}$
+\item $x_{3}$ affects $\{0,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} &= 28 \\
+x_{0} + x_{1} &= 30 \\
+x_{0} + x_{1} &= 30 \\
+x_{0} + x_{1} + x_{2} &= 43 \\
+x_{3} &= 17 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 11 \\
+x_{2} &= 13 \\
+x_{3} &= 17 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 60\\
+
+% Machine 104
+\subsection*{Machine 104}
+\textbf{Pattern:} \texttt{[..###]}\\
+\textbf{Targets:} $\{18,9,9,0,18\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3\}$
+\item $x_{1}$ affects $\{0,2,4\}$
+\item $x_{2}$ affects $\{0,1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} &= 18 \\
+x_{0} + x_{2} &= 9 \\
+x_{0} + x_{1} &= 9 \\
+x_{0} &= 0 \\
+x_{1} + x_{2} &= 18 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 9 \\
+x_{2} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 18\\
+
+% Machine 105
+\subsection*{Machine 105}
+\textbf{Pattern:} \texttt{[##.###]}\\
+\textbf{Targets:} $\{27,41,43,55,25,23\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2\}$
+\item $x_{1}$ affects $\{0,2,4\}$
+\item $x_{2}$ affects $\{1,3,5\}$
+\item $x_{3}$ affects $\{3,4\}$
+\item $x_{4}$ affects $\{1,3,4\}$
+\item $x_{5}$ affects $\{2,3\}$
+\item $x_{6}$ affects $\{0,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{6} &= 27 \\
+x_{0} + x_{2} + x_{4} &= 41 \\
+x_{0} + x_{1} + x_{5} &= 43 \\
+x_{2} + x_{3} + x_{4} + x_{5} &= 55 \\
+x_{1} + x_{3} + x_{4} + x_{6} &= 25 \\
+x_{2} + x_{6} &= 23 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 18 \\
+x_{2} &= 14 \\
+x_{3} &= 7 \\
+x_{4} &= 9 \\
+x_{5} &= 25 \\
+x_{6} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 82\\
+
+% Machine 106
+\subsection*{Machine 106}
+\textbf{Pattern:} \texttt{[....###.##]}\\
+\textbf{Targets:} $\{114,34,129,13,48,16,24,27,116,34\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,4,9\}$
+\item $x_{1}$ affects $\{0,2,8\}$
+\item $x_{2}$ affects $\{4,5,7\}$
+\item $x_{3}$ affects $\{0,2,4,5,7,9\}$
+\item $x_{4}$ affects $\{0,2,6,7,8\}$
+\item $x_{5}$ affects $\{1,2,3,4,5,6,7,9\}$
+\item $x_{6}$ affects $\{1,2,4,6,7,8,9\}$
+\item $x_{7}$ affects $\{4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{4} &= 114 \\
+x_{0} + x_{5} + x_{6} &= 34 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{6} &= 129 \\
+x_{5} &= 13 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 48 \\
+x_{2} + x_{3} + x_{5} &= 16 \\
+x_{4} + x_{5} + x_{6} &= 24 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{6} &= 27 \\
+x_{1} + x_{4} + x_{6} &= 116 \\
+x_{0} + x_{3} + x_{5} + x_{6} &= 34 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 105 \\
+x_{2} &= 3 \\
+x_{4} &= 9 \\
+x_{5} &= 13 \\
+x_{6} &= 2 \\
+x_{7} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 162\\
+
+% Machine 107
+\subsection*{Machine 107}
+\textbf{Pattern:} \texttt{[##.#]}\\
+\textbf{Targets:} $\{15,3,21,12\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2\}$
+\item $x_{1}$ affects $\{0,1\}$
+\item $x_{2}$ affects $\{0\}$
+\item $x_{3}$ affects $\{2,3\}$
+\item $x_{4}$ affects $\{0,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{4} &= 15 \\
+x_{1} &= 3 \\
+x_{0} + x_{3} &= 21 \\
+x_{3} + x_{4} &= 12 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 21 \\
+x_{1} &= 3 \\
+x_{4} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 36\\
+
+% Machine 108
+\subsection*{Machine 108}
+\textbf{Pattern:} \texttt{[.###]}\\
+\textbf{Targets:} $\{19,8,27,8\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2\}$
+\item $x_{1}$ affects $\{1,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{1} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 8 \\
+x_{0} + x_{1} &= 27 \\
+x_{1} &= 8 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 8 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 27\\
+
+% Machine 109
+\subsection*{Machine 109}
+\textbf{Pattern:} \texttt{[.####.##]}\\
+\textbf{Targets:} $\{63,57,54,36,68,34,60,32\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,4,6,7\}$
+\item $x_{1}$ affects $\{1,5\}$
+\item $x_{2}$ affects $\{0,1,3,5,6,7\}$
+\item $x_{3}$ affects $\{0,1,2,3,4,5\}$
+\item $x_{4}$ affects $\{0,1,2,4,6,7\}$
+\item $x_{5}$ affects $\{0\}$
+\item $x_{6}$ affects $\{0,2,4,6\}$
+\item $x_{7}$ affects $\{1,4,5,6\}$
+\item $x_{8}$ affects $\{0,1,3,4,5,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{8} &= 63 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{7} + x_{8} &= 57 \\
+x_{0} + x_{3} + x_{4} + x_{6} &= 54 \\
+x_{0} + x_{2} + x_{3} + x_{8} &= 36 \\
+x_{0} + x_{3} + x_{4} + x_{6} + x_{7} + x_{8} &= 68 \\
+x_{1} + x_{2} + x_{3} + x_{7} + x_{8} &= 34 \\
+x_{0} + x_{2} + x_{4} + x_{6} + x_{7} + x_{8} &= 60 \\
+x_{0} + x_{2} + x_{4} + x_{8} &= 32 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{2} &= 6 \\
+x_{3} &= 14 \\
+x_{4} &= 10 \\
+x_{6} &= 17 \\
+x_{7} &= 11 \\
+x_{8} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 74\\
+
+% Machine 110
+\subsection*{Machine 110}
+\textbf{Pattern:} \texttt{[##..#]}\\
+\textbf{Targets:} $\{18,27,11,13,16\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3\}$
+\item $x_{1}$ affects $\{0,3\}$
+\item $x_{2}$ affects $\{0,1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} &= 18 \\
+x_{0} + x_{2} &= 27 \\
+x_{0} &= 11 \\
+x_{0} + x_{1} &= 13 \\
+x_{2} &= 16 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 11 \\
+x_{1} &= 2 \\
+x_{2} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 29\\
+
+% Machine 111
+\subsection*{Machine 111}
+\textbf{Pattern:} \texttt{[####.#..##]}\\
+\textbf{Targets:} $\{22,54,37,11,33,24,59,5,46,34\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,7\}$
+\item $x_{1}$ affects $\{0,2,4,8,9\}$
+\item $x_{2}$ affects $\{2,3\}$
+\item $x_{3}$ affects $\{1,4\}$
+\item $x_{4}$ affects $\{1,2,4,6,8,9\}$
+\item $x_{5}$ affects $\{1,5,6,8\}$
+\item $x_{6}$ affects $\{1,3,5,6,7\}$
+\item $x_{7}$ affects $\{0,1,8\}$
+\item $x_{8}$ affects $\{0,1,2,4,6\}$
+\item $x_{9}$ affects $\{6,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{7} + x_{8} &= 22 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 54 \\
+x_{1} + x_{2} + x_{4} + x_{8} &= 37 \\
+x_{0} + x_{2} + x_{6} &= 11 \\
+x_{1} + x_{3} + x_{4} + x_{8} &= 33 \\
+x_{5} + x_{6} &= 24 \\
+x_{4} + x_{5} + x_{6} + x_{8} + x_{9} &= 59 \\
+x_{0} + x_{6} &= 5 \\
+x_{1} + x_{4} + x_{5} + x_{7} &= 46 \\
+x_{1} + x_{4} + x_{9} &= 34 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 8 \\
+x_{2} &= 6 \\
+x_{3} &= 2 \\
+x_{4} &= 14 \\
+x_{5} &= 19 \\
+x_{6} &= 5 \\
+x_{7} &= 5 \\
+x_{8} &= 9 \\
+x_{9} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 80\\
+
+% Machine 112
+\subsection*{Machine 112}
+\textbf{Pattern:} \texttt{[#.#...#.]}\\
+\textbf{Targets:} $\{53,35,55,20,52,38,31,30\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3,4,6,7\}$
+\item $x_{1}$ affects $\{2,4\}$
+\item $x_{2}$ affects $\{0,1,4,5,6,7\}$
+\item $x_{3}$ affects $\{2,7\}$
+\item $x_{4}$ affects $\{0,2,6\}$
+\item $x_{5}$ affects $\{1,6\}$
+\item $x_{6}$ affects $\{0,3,5\}$
+\item $x_{7}$ affects $\{0,1,2,4,5,7\}$
+\item $x_{8}$ affects $\{1,2,4,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{4} + x_{6} + x_{7} &= 53 \\
+x_{0} + x_{2} + x_{5} + x_{7} + x_{8} &= 35 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{7} + x_{8} &= 55 \\
+x_{0} + x_{6} &= 20 \\
+x_{0} + x_{1} + x_{2} + x_{7} + x_{8} &= 52 \\
+x_{2} + x_{6} + x_{7} &= 38 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{8} &= 31 \\
+x_{0} + x_{2} + x_{3} + x_{7} &= 30 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 5 \\
+x_{1} &= 17 \\
+x_{2} &= 9 \\
+x_{3} &= 2 \\
+x_{4} &= 10 \\
+x_{6} &= 15 \\
+x_{7} &= 14 \\
+x_{8} &= 7 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 79\\
+
+% Machine 113
+\subsection*{Machine 113}
+\textbf{Pattern:} \texttt{[##.###]}\\
+\textbf{Targets:} $\{56,35,41,53,35,15\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3,4\}$
+\item $x_{1}$ affects $\{0,1,2,3\}$
+\item $x_{2}$ affects $\{1,4\}$
+\item $x_{3}$ affects $\{0,1,2,4\}$
+\item $x_{4}$ affects $\{0,3,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{3} + x_{4} &= 56 \\
+x_{1} + x_{2} + x_{3} &= 35 \\
+x_{0} + x_{1} + x_{3} &= 41 \\
+x_{0} + x_{1} + x_{4} &= 53 \\
+x_{0} + x_{2} + x_{3} &= 35 \\
+x_{4} &= 15 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 19 \\
+x_{2} &= 13 \\
+x_{3} &= 3 \\
+x_{4} &= 15 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 69\\
+
+% Machine 114
+\subsection*{Machine 114}
+\textbf{Pattern:} \texttt{[#######]}\\
+\textbf{Targets:} $\{44,46,55,29,33,13,19\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,6\}$
+\item $x_{1}$ affects $\{0,3\}$
+\item $x_{2}$ affects $\{0,5\}$
+\item $x_{3}$ affects $\{0,4\}$
+\item $x_{4}$ affects $\{1,2,4\}$
+\item $x_{5}$ affects $\{1,2,6\}$
+\item $x_{6}$ affects $\{1,2\}$
+\item $x_{7}$ affects $\{1,2,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} &= 44 \\
+x_{4} + x_{5} + x_{6} + x_{7} &= 46 \\
+x_{0} + x_{4} + x_{5} + x_{6} + x_{7} &= 55 \\
+x_{1} + x_{7} &= 29 \\
+x_{3} + x_{4} + x_{7} &= 33 \\
+x_{2} &= 13 \\
+x_{0} + x_{5} &= 19 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 9 \\
+x_{2} &= 13 \\
+x_{3} &= 13 \\
+x_{5} &= 10 \\
+x_{6} &= 16 \\
+x_{7} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 90\\
+
+% Machine 115
+\subsection*{Machine 115}
+\textbf{Pattern:} \texttt{[.#.##..]}\\
+\textbf{Targets:} $\{22,58,66,46,18,64,35\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,5\}$
+\item $x_{1}$ affects $\{3,4,5,6\}$
+\item $x_{2}$ affects $\{2,3\}$
+\item $x_{3}$ affects $\{1,4,5,6\}$
+\item $x_{4}$ affects $\{1,2,5,6\}$
+\item $x_{5}$ affects $\{1,2,3\}$
+\item $x_{6}$ affects $\{3,5\}$
+\item $x_{7}$ affects $\{0,2,4,5,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{7} &= 22 \\
+x_{0} + x_{3} + x_{4} + x_{5} &= 58 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{7} &= 66 \\
+x_{1} + x_{2} + x_{5} + x_{6} &= 46 \\
+x_{1} + x_{3} + x_{7} &= 18 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{6} + x_{7} &= 64 \\
+x_{1} + x_{3} + x_{4} + x_{7} &= 35 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 10 \\
+x_{2} &= 2 \\
+x_{3} &= 6 \\
+x_{4} &= 17 \\
+x_{5} &= 25 \\
+x_{6} &= 19 \\
+x_{7} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 91\\
+
+% Machine 116
+\subsection*{Machine 116}
+\textbf{Pattern:} \texttt{[#..#...#.#]}\\
+\textbf{Targets:} $\{96,97,36,96,81,95,141,84,99,62\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,5,6,7,8,9\}$
+\item $x_{1}$ affects $\{0,1,5,6,7,8\}$
+\item $x_{2}$ affects $\{0,1,2,3,4,5,6,8\}$
+\item $x_{3}$ affects $\{0,1,3,4,6,7,8,9\}$
+\item $x_{4}$ affects $\{0,1,3,4,5,6,8\}$
+\item $x_{5}$ affects $\{1,4,9\}$
+\item $x_{6}$ affects $\{3,6,7\}$
+\item $x_{7}$ affects $\{0,2,3,4,5,7,8\}$
+\item $x_{8}$ affects $\{0,1,4,6\}$
+\item $x_{9}$ affects $\{3,4,5,6,9\}$
+\item $x_{10}$ affects $\{2,5,8,9\}$
+\item $x_{11}$ affects $\{0,3,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{11} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{4} + x_{7} + x_{8} + x_{11} &= 96 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{8} &= 97 \\
+x_{2} + x_{7} + x_{10} &= 36 \\
+x_{2} + x_{3} + x_{4} + x_{6} + x_{7} + x_{9} + x_{11} &= 96 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} + x_{9} &= 81 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{7} + x_{9} + x_{10} &= 95 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{8} + x_{9} + x_{11} &= 141 \\
+x_{0} + x_{1} + x_{3} + x_{6} + x_{7} + x_{11} &= 84 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{7} + x_{10} &= 99 \\
+x_{0} + x_{3} + x_{5} + x_{9} + x_{10} &= 62 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 7 \\
+x_{1} &= 29 \\
+x_{2} &= 25 \\
+x_{3} &= 24 \\
+x_{4} &= 3 \\
+x_{6} &= 18 \\
+x_{8} &= 9 \\
+x_{9} &= 20 \\
+x_{10} &= 11 \\
+x_{11} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 152\\
+
+% Machine 117
+\subsection*{Machine 117}
+\textbf{Pattern:} \texttt{[..##..]}\\
+\textbf{Targets:} $\{18,14,44,15,18,14\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,4,5\}$
+\item $x_{1}$ affects $\{2,3\}$
+\item $x_{2}$ affects $\{0,2,4\}$
+\item $x_{3}$ affects $\{1,2,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} &= 18 \\
+x_{0} + x_{3} &= 14 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 44 \\
+x_{1} &= 15 \\
+x_{0} + x_{2} &= 18 \\
+x_{0} + x_{3} &= 14 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 3 \\
+x_{1} &= 15 \\
+x_{2} &= 15 \\
+x_{3} &= 11 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 44\\
+
+% Machine 118
+\subsection*{Machine 118}
+\textbf{Pattern:} \texttt{[.#.#..]}\\
+\textbf{Targets:} $\{199,197,217,12,206,227\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,4,5\}$
+\item $x_{1}$ affects $\{3,4,5\}$
+\item $x_{2}$ affects $\{2,5\}$
+\item $x_{3}$ affects $\{4,5\}$
+\item $x_{4}$ affects $\{0,1,2,3,5\}$
+\item $x_{5}$ affects $\{0,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{4} + x_{5} &= 199 \\
+x_{0} + x_{4} &= 197 \\
+x_{0} + x_{2} + x_{4} &= 217 \\
+x_{1} + x_{4} + x_{5} &= 12 \\
+x_{0} + x_{1} + x_{3} &= 206 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} &= 227 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 196 \\
+x_{1} &= 9 \\
+x_{2} &= 20 \\
+x_{3} &= 1 \\
+x_{4} &= 1 \\
+x_{5} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 229\\
+
+% Machine 119
+\subsection*{Machine 119}
+\textbf{Pattern:} \texttt{[..#..#]}\\
+\textbf{Targets:} $\{18,43,20,25,29,20\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3,5\}$
+\item $x_{1}$ affects $\{1,2,3,4,5\}$
+\item $x_{2}$ affects $\{1,3\}$
+\item $x_{3}$ affects $\{0,1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} &= 18 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 43 \\
+x_{0} + x_{1} &= 20 \\
+x_{0} + x_{1} + x_{2} &= 25 \\
+x_{1} + x_{3} &= 29 \\
+x_{0} + x_{1} &= 20 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 11 \\
+x_{2} &= 5 \\
+x_{3} &= 18 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 43\\
+
+% Machine 120
+\subsection*{Machine 120}
+\textbf{Pattern:} \texttt{[#####]}\\
+\textbf{Targets:} $\{33,42,29,11,29\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,4\}$
+\item $x_{1}$ affects $\{0,1,3\}$
+\item $x_{2}$ affects $\{0,1,2,4\}$
+\item $x_{3}$ affects $\{0,1\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} &= 33 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 42 \\
+x_{0} + x_{2} &= 29 \\
+x_{1} &= 11 \\
+x_{0} + x_{2} &= 29 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 9 \\
+x_{1} &= 11 \\
+x_{2} &= 20 \\
+x_{3} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 42\\
+
+% Machine 121
+\subsection*{Machine 121}
+\textbf{Pattern:} \texttt{[####.]}\\
+\textbf{Targets:} $\{19,30,16,33,17\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3,4\}$
+\item $x_{1}$ affects $\{1,3,4\}$
+\item $x_{2}$ affects $\{0,1,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} &= 19 \\
+x_{1} + x_{2} &= 30 \\
+x_{2} &= 16 \\
+x_{0} + x_{1} + x_{2} &= 33 \\
+x_{0} + x_{1} &= 17 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 3 \\
+x_{1} &= 14 \\
+x_{2} &= 16 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 33\\
+
+% Machine 122
+\subsection*{Machine 122}
+\textbf{Pattern:} \texttt{[##.#.#]}\\
+\textbf{Targets:} $\{66,47,19,38,47,33\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3,4\}$
+\item $x_{1}$ affects $\{0,1,3,5\}$
+\item $x_{2}$ affects $\{0,1,4,5\}$
+\item $x_{3}$ affects $\{0,1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} &= 66 \\
+x_{1} + x_{2} + x_{3} &= 47 \\
+x_{0} &= 19 \\
+x_{0} + x_{1} &= 38 \\
+x_{0} + x_{2} + x_{3} &= 47 \\
+x_{1} + x_{2} &= 33 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 19 \\
+x_{1} &= 19 \\
+x_{2} &= 14 \\
+x_{3} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 66\\
+
+% Machine 123
+\subsection*{Machine 123}
+\textbf{Pattern:} \texttt{[#.#.]}\\
+\textbf{Targets:} $\{32,27,7,14\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1\}$
+\item $x_{1}$ affects $\{0,1,3\}$
+\item $x_{2}$ affects $\{0,2\}$
+\item $x_{3}$ affects $\{1,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} &= 32 \\
+x_{0} + x_{1} + x_{3} &= 27 \\
+x_{2} &= 7 \\
+x_{1} + x_{3} &= 14 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 12 \\
+x_{2} &= 7 \\
+x_{3} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 34\\
+
+% Machine 124
+\subsection*{Machine 124}
+\textbf{Pattern:} \texttt{[.##..#]}\\
+\textbf{Targets:} $\{43,43,40,25,41,33\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0\}$
+\item $x_{1}$ affects $\{1,4\}$
+\item $x_{2}$ affects $\{0,1,4,5\}$
+\item $x_{3}$ affects $\{0,3\}$
+\item $x_{4}$ affects $\{2,3\}$
+\item $x_{5}$ affects $\{0,1,5\}$
+\item $x_{6}$ affects $\{2,4,5\}$
+\item $x_{7}$ affects $\{1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{5} &= 43 \\
+x_{1} + x_{2} + x_{5} + x_{7} &= 43 \\
+x_{4} + x_{6} + x_{7} &= 40 \\
+x_{3} + x_{4} &= 25 \\
+x_{1} + x_{2} + x_{6} &= 41 \\
+x_{2} + x_{5} + x_{6} &= 33 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 4 \\
+x_{1} &= 8 \\
+x_{2} &= 14 \\
+x_{3} &= 25 \\
+x_{6} &= 19 \\
+x_{7} &= 21 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 91\\
+
+% Machine 125
+\subsection*{Machine 125}
+\textbf{Pattern:} \texttt{[#..##.##]}\\
+\textbf{Targets:} $\{63,42,38,57,65,48,70,33\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,4\}$
+\item $x_{1}$ affects $\{0,3,5\}$
+\item $x_{2}$ affects $\{0,1,2\}$
+\item $x_{3}$ affects $\{0,1,3,4,6,7\}$
+\item $x_{4}$ affects $\{5\}$
+\item $x_{5}$ affects $\{2,4,6\}$
+\item $x_{6}$ affects $\{0,3,4,5,6,7\}$
+\item $x_{7}$ affects $\{5,6\}$
+\item $x_{8}$ affects $\{0,2,3,4,6\}$
+\item $x_{9}$ affects $\{1\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{6} + x_{8} &= 63 \\
+x_{2} + x_{3} + x_{9} &= 42 \\
+x_{2} + x_{5} + x_{8} &= 38 \\
+x_{0} + x_{1} + x_{3} + x_{6} + x_{8} &= 57 \\
+x_{0} + x_{3} + x_{5} + x_{6} + x_{8} &= 65 \\
+x_{1} + x_{4} + x_{6} + x_{7} &= 48 \\
+x_{3} + x_{5} + x_{6} + x_{7} + x_{8} &= 70 \\
+x_{3} + x_{6} &= 33 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 24 \\
+x_{2} &= 6 \\
+x_{3} &= 14 \\
+x_{5} &= 32 \\
+x_{6} &= 19 \\
+x_{7} &= 5 \\
+x_{9} &= 22 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 122\\
+
+% Machine 126
+\subsection*{Machine 126}
+\textbf{Pattern:} \texttt{[.#.##...#]}\\
+\textbf{Targets:} $\{70,26,38,49,43,56,39,33,25\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3,5,6\}$
+\item $x_{1}$ affects $\{3,4,5,6,8\}$
+\item $x_{2}$ affects $\{0,1,2,3,8\}$
+\item $x_{3}$ affects $\{0,5,7\}$
+\item $x_{4}$ affects $\{1,2,3,4,5,7,8\}$
+\item $x_{5}$ affects $\{0,4\}$
+\item $x_{6}$ affects $\{4,5,6,7,8\}$
+\item $x_{7}$ affects $\{1,3,4,5,6,7,8\}$
+\item $x_{8}$ affects $\{0,1,3,4,5,6,7\}$
+\item $x_{9}$ affects $\{2,5,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{5} + x_{8} &= 70 \\
+x_{2} + x_{4} + x_{7} + x_{8} &= 26 \\
+x_{0} + x_{2} + x_{4} + x_{9} &= 38 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{7} + x_{8} &= 49 \\
+x_{1} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 43 \\
+x_{0} + x_{1} + x_{3} + x_{4} + x_{6} + x_{7} + x_{8} + x_{9} &= 56 \\
+x_{0} + x_{1} + x_{6} + x_{7} + x_{8} &= 39 \\
+x_{3} + x_{4} + x_{6} + x_{7} + x_{8} + x_{9} &= 33 \\
+x_{1} + x_{2} + x_{4} + x_{6} + x_{7} &= 25 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 20 \\
+x_{1} &= 3 \\
+x_{2} &= 11 \\
+x_{3} &= 10 \\
+x_{4} &= 5 \\
+x_{5} &= 19 \\
+x_{6} &= 6 \\
+x_{8} &= 10 \\
+x_{9} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 86\\
+
+% Machine 127
+\subsection*{Machine 127}
+\textbf{Pattern:} \texttt{[..###..]}\\
+\textbf{Targets:} $\{43,29,48,36,27,34,49\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{4,6\}$
+\item $x_{1}$ affects $\{0,2\}$
+\item $x_{2}$ affects $\{0,1,2,5,6\}$
+\item $x_{3}$ affects $\{3,5,6\}$
+\item $x_{4}$ affects $\{0,3,4,6\}$
+\item $x_{5}$ affects $\{1,2,3,5,6\}$
+\item $x_{6}$ affects $\{0,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{4} + x_{6} &= 43 \\
+x_{2} + x_{5} &= 29 \\
+x_{1} + x_{2} + x_{5} &= 48 \\
+x_{3} + x_{4} + x_{5} + x_{6} &= 36 \\
+x_{0} + x_{4} + x_{6} &= 27 \\
+x_{2} + x_{3} + x_{5} &= 34 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} &= 49 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 14 \\
+x_{1} &= 19 \\
+x_{2} &= 11 \\
+x_{3} &= 5 \\
+x_{4} &= 1 \\
+x_{5} &= 18 \\
+x_{6} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 80\\
+
+% Machine 128
+\subsection*{Machine 128}
+\textbf{Pattern:} \texttt{[###.]}\\
+\textbf{Targets:} $\{26,18,3,3\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1\}$
+\item $x_{1}$ affects $\{2,3\}$
+\item $x_{2}$ affects $\{0\}$
+\item $x_{3}$ affects $\{0,1,3\}$
+\item $x_{4}$ affects $\{1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} &= 26 \\
+x_{0} + x_{3} + x_{4} &= 18 \\
+x_{1} + x_{4} &= 3 \\
+x_{1} + x_{3} &= 3 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 12 \\
+x_{2} &= 11 \\
+x_{3} &= 3 \\
+x_{4} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 29\\
+
+% Machine 129
+\subsection*{Machine 129}
+\textbf{Pattern:} \texttt{[.##.#]}\\
+\textbf{Targets:} $\{18,158,172,18,9\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3,4\}$
+\item $x_{1}$ affects $\{1,2\}$
+\item $x_{2}$ affects $\{0,2,3\}$
+\item $x_{3}$ affects $\{1,2,4\}$
+\item $x_{4}$ affects $\{1,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} &= 18 \\
+x_{1} + x_{3} + x_{4} &= 158 \\
+x_{1} + x_{2} + x_{3} &= 172 \\
+x_{0} + x_{2} &= 18 \\
+x_{0} + x_{3} + x_{4} &= 9 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{1} &= 149 \\
+x_{2} &= 18 \\
+x_{3} &= 5 \\
+x_{4} &= 4 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 176\\
+
+% Machine 130
+\subsection*{Machine 130}
+\textbf{Pattern:} \texttt{[#####]}\\
+\textbf{Targets:} $\{20,5,9,13,9\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0\}$
+\item $x_{1}$ affects $\{0,3,4\}$
+\item $x_{2}$ affects $\{0,2,3,4\}$
+\item $x_{3}$ affects $\{0,1,3\}$
+\item $x_{4}$ affects $\{0,1\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{4} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} &= 20 \\
+x_{3} + x_{4} &= 5 \\
+x_{2} &= 9 \\
+x_{1} + x_{2} + x_{3} &= 13 \\
+x_{1} + x_{2} &= 9 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{2} &= 9 \\
+x_{3} &= 4 \\
+x_{4} &= 1 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 20\\
+
+% Machine 131
+\subsection*{Machine 131}
+\textbf{Pattern:} \texttt{[#.##.#..]}\\
+\textbf{Targets:} $\{59,34,41,45,64,44,41,45\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3,5\}$
+\item $x_{1}$ affects $\{0,4,6,7\}$
+\item $x_{2}$ affects $\{4,7\}$
+\item $x_{3}$ affects $\{1,2,3,4,6,7\}$
+\item $x_{4}$ affects $\{3\}$
+\item $x_{5}$ affects $\{2,3,4,5,6,7\}$
+\item $x_{6}$ affects $\{0,1,2,4,5\}$
+\item $x_{7}$ affects $\{0,1,2,4,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{6} + x_{7} &= 59 \\
+x_{3} + x_{6} + x_{7} &= 34 \\
+x_{3} + x_{5} + x_{6} + x_{7} &= 41 \\
+x_{0} + x_{3} + x_{4} + x_{5} &= 45 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 64 \\
+x_{0} + x_{5} + x_{6} &= 44 \\
+x_{1} + x_{3} + x_{5} + x_{7} &= 41 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{7} &= 45 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 18 \\
+x_{1} &= 19 \\
+x_{2} &= 4 \\
+x_{3} &= 12 \\
+x_{4} &= 8 \\
+x_{5} &= 7 \\
+x_{6} &= 19 \\
+x_{7} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 90\\
+
+% Machine 132
+\subsection*{Machine 132}
+\textbf{Pattern:} \texttt{[..#..#...]}\\
+\textbf{Targets:} $\{11,32,27,64,63,45,58,58,48\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{4,8\}$
+\item $x_{1}$ affects $\{2,8\}$
+\item $x_{2}$ affects $\{2,4,5,6,7,8\}$
+\item $x_{3}$ affects $\{1,4,6,7\}$
+\item $x_{4}$ affects $\{0,8\}$
+\item $x_{5}$ affects $\{2,3,4,5,6,7,8\}$
+\item $x_{6}$ affects $\{0,3,5,6,7\}$
+\item $x_{7}$ affects $\{3,7,8\}$
+\item $x_{8}$ affects $\{1,3,4,5,6\}$
+\item $x_{9}$ affects $\{2,3,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{4} + x_{6} &= 11 \\
+x_{3} + x_{8} &= 32 \\
+x_{1} + x_{2} + x_{5} + x_{9} &= 27 \\
+x_{5} + x_{6} + x_{7} + x_{8} + x_{9} &= 64 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{8} &= 63 \\
+x_{2} + x_{5} + x_{6} + x_{8} &= 45 \\
+x_{2} + x_{3} + x_{5} + x_{6} + x_{8} &= 58 \\
+x_{2} + x_{3} + x_{5} + x_{6} + x_{7} + x_{9} &= 58 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{7} &= 48 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 11 \\
+x_{3} &= 13 \\
+x_{4} &= 5 \\
+x_{5} &= 20 \\
+x_{6} &= 6 \\
+x_{7} &= 12 \\
+x_{8} &= 19 \\
+x_{9} &= 7 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 93\\
+
+% Machine 133
+\subsection*{Machine 133}
+\textbf{Pattern:} \texttt{[#...#.###.]}\\
+\textbf{Targets:} $\{73,48,38,40,111,68,24,95,68,40\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,4,5,6,8,9\}$
+\item $x_{1}$ affects $\{2,4,8\}$
+\item $x_{2}$ affects $\{4,7\}$
+\item $x_{3}$ affects $\{0,2,3,4,5,7,8,9\}$
+\item $x_{4}$ affects $\{2,3,4,6,7\}$
+\item $x_{5}$ affects $\{0,1,3,4,5,6,7\}$
+\item $x_{6}$ affects $\{5,6\}$
+\item $x_{7}$ affects $\{3,8\}$
+\item $x_{8}$ affects $\{1,4,5,7,8,9\}$
+\item $x_{9}$ affects $\{0,4,7\}$
+\item $x_{10}$ affects $\{0,1,4,5,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{3} + x_{5} + x_{9} + x_{10} &= 73 \\
+x_{0} + x_{5} + x_{8} + x_{10} &= 48 \\
+x_{0} + x_{1} + x_{3} + x_{4} &= 38 \\
+x_{3} + x_{4} + x_{5} + x_{7} &= 40 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{8} + x_{9} + x_{10} &= 111 \\
+x_{0} + x_{3} + x_{5} + x_{6} + x_{8} + x_{10} &= 68 \\
+x_{0} + x_{4} + x_{5} + x_{6} &= 24 \\
+x_{2} + x_{3} + x_{4} + x_{5} + x_{8} + x_{9} + x_{10} &= 95 \\
+x_{0} + x_{1} + x_{3} + x_{7} + x_{8} + x_{10} &= 68 \\
+x_{0} + x_{3} + x_{8} &= 40 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 4 \\
+x_{1} &= 12 \\
+x_{2} &= 4 \\
+x_{3} &= 18 \\
+x_{4} &= 4 \\
+x_{5} &= 14 \\
+x_{6} &= 2 \\
+x_{7} &= 4 \\
+x_{8} &= 18 \\
+x_{9} &= 25 \\
+x_{10} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 117\\
+
+% Machine 134
+\subsection*{Machine 134}
+\textbf{Pattern:} \texttt{[#..##...]}\\
+\textbf{Targets:} $\{39,39,43,30,53,39,34,57\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{7\}$
+\item $x_{1}$ affects $\{0,1,3,4,7\}$
+\item $x_{2}$ affects $\{0,1,4,5,6,7\}$
+\item $x_{3}$ affects $\{0,2,3,4,6,7\}$
+\item $x_{4}$ affects $\{0,6\}$
+\item $x_{5}$ affects $\{1,2,4,5,7\}$
+\item $x_{6}$ affects $\{1,2,3,4,5,6\}$
+\item $x_{7}$ affects $\{0,2,3,4,5,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} + x_{3} + x_{4} + x_{7} &= 39 \\
+x_{1} + x_{2} + x_{5} + x_{6} &= 39 \\
+x_{3} + x_{5} + x_{6} + x_{7} &= 43 \\
+x_{1} + x_{3} + x_{6} + x_{7} &= 30 \\
+x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{7} &= 53 \\
+x_{2} + x_{5} + x_{6} + x_{7} &= 39 \\
+x_{2} + x_{3} + x_{4} + x_{6} &= 34 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{7} &= 57 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 7 \\
+x_{2} &= 3 \\
+x_{3} &= 7 \\
+x_{4} &= 15 \\
+x_{5} &= 20 \\
+x_{6} &= 9 \\
+x_{7} &= 7 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 81\\
+
+% Machine 135
+\subsection*{Machine 135}
+\textbf{Pattern:} \texttt{[###.#]}\\
+\textbf{Targets:} $\{6,36,14,30,6\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,4\}$
+\item $x_{1}$ affects $\{1,3\}$
+\item $x_{2}$ affects $\{1,3,4\}$
+\item $x_{3}$ affects $\{1,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 36 \\
+x_{3} &= 14 \\
+x_{1} + x_{2} + x_{3} &= 30 \\
+x_{0} + x_{2} &= 6 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{1} &= 16 \\
+x_{3} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 36\\
+
+% Machine 136
+\subsection*{Machine 136}
+\textbf{Pattern:} \texttt{[.#.....#..]}\\
+\textbf{Targets:} $\{62,31,43,64,25,25,64,39,44,87\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,5,6,9\}$
+\item $x_{1}$ affects $\{0,1,3,9\}$
+\item $x_{2}$ affects $\{0,6\}$
+\item $x_{3}$ affects $\{6,8\}$
+\item $x_{4}$ affects $\{2,3,6,7,8,9\}$
+\item $x_{5}$ affects $\{0,3,4,9\}$
+\item $x_{6}$ affects $\{3,4,7,8,9\}$
+\item $x_{7}$ affects $\{0,1,2,5,6,7,9\}$
+\item $x_{8}$ affects $\{5,6\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{5} + x_{7} &= 62 \\
+x_{1} + x_{7} &= 31 \\
+x_{0} + x_{4} + x_{7} &= 43 \\
+x_{1} + x_{4} + x_{5} + x_{6} &= 64 \\
+x_{5} + x_{6} &= 25 \\
+x_{0} + x_{7} + x_{8} &= 25 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{7} + x_{8} &= 64 \\
+x_{4} + x_{6} + x_{7} &= 39 \\
+x_{3} + x_{4} + x_{6} &= 44 \\
+x_{0} + x_{1} + x_{4} + x_{5} + x_{6} + x_{7} &= 87 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 11 \\
+x_{1} &= 19 \\
+x_{2} &= 2 \\
+x_{3} &= 17 \\
+x_{4} &= 20 \\
+x_{5} &= 18 \\
+x_{6} &= 7 \\
+x_{7} &= 12 \\
+x_{8} &= 2 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 108\\
+
+% Machine 137
+\subsection*{Machine 137}
+\textbf{Pattern:} \texttt{[.#.#.###.]}\\
+\textbf{Targets:} $\{23,40,24,39,79,31,64,44,43\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6,8\}$
+\item $x_{1}$ affects $\{5,8\}$
+\item $x_{2}$ affects $\{0,1,4,5,6,7\}$
+\item $x_{3}$ affects $\{4,6\}$
+\item $x_{4}$ affects $\{1,6\}$
+\item $x_{5}$ affects $\{0,1,2,6\}$
+\item $x_{6}$ affects $\{3,5,6,7,8\}$
+\item $x_{7}$ affects $\{2,3,4,7\}$
+\item $x_{8}$ affects $\{4,7\}$
+\item $x_{9}$ affects $\{1,2,4,5,6,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{5} &= 23 \\
+x_{0} + x_{2} + x_{4} + x_{5} + x_{9} &= 40 \\
+x_{5} + x_{7} + x_{9} &= 24 \\
+x_{0} + x_{6} + x_{7} &= 39 \\
+x_{0} + x_{2} + x_{3} + x_{7} + x_{8} + x_{9} &= 79 \\
+x_{1} + x_{2} + x_{6} + x_{9} &= 31 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{9} &= 64 \\
+x_{2} + x_{6} + x_{7} + x_{8} &= 44 \\
+x_{0} + x_{1} + x_{6} + x_{9} &= 43 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 17 \\
+x_{1} &= 11 \\
+x_{2} &= 5 \\
+x_{3} &= 17 \\
+x_{4} &= 9 \\
+x_{5} &= 1 \\
+x_{6} &= 7 \\
+x_{7} &= 15 \\
+x_{8} &= 17 \\
+x_{9} &= 8 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 107\\
+
+% Machine 138
+\subsection*{Machine 138}
+\textbf{Pattern:} \texttt{[######...#]}\\
+\textbf{Targets:} $\{101,92,115,64,73,85,95,42,70,91\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,3,4,8,9\}$
+\item $x_{1}$ affects $\{0,2,4,6,9\}$
+\item $x_{2}$ affects $\{0,1,2,3,4,5,8,9\}$
+\item $x_{3}$ affects $\{0,1,2,3,5,6,8,9\}$
+\item $x_{4}$ affects $\{2,6,8,9\}$
+\item $x_{5}$ affects $\{0,4,6,7,9\}$
+\item $x_{6}$ affects $\{0,2,4,5,6,7,8\}$
+\item $x_{7}$ affects $\{1,2,5,6,7\}$
+\item $x_{8}$ affects $\{0,1,2,3,8\}$
+\item $x_{9}$ affects $\{0,1,4,5,9\}$
+\item $x_{10}$ affects $\{0,1,2,3,4,5,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{6} + x_{8} + x_{9} + x_{10} &= 101 \\
+x_{2} + x_{3} + x_{7} + x_{8} + x_{9} + x_{10} &= 92 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} + x_{8} + x_{10} &= 115 \\
+x_{0} + x_{2} + x_{3} + x_{8} + x_{10} &= 64 \\
+x_{0} + x_{1} + x_{2} + x_{5} + x_{6} + x_{9} + x_{10} &= 73 \\
+x_{2} + x_{3} + x_{6} + x_{7} + x_{9} + x_{10} &= 85 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{10} &= 95 \\
+x_{5} + x_{6} + x_{7} + x_{10} &= 42 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{6} + x_{8} &= 70 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{9} &= 91 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 1 \\
+x_{1} &= 13 \\
+x_{2} &= 16 \\
+x_{3} &= 18 \\
+x_{4} &= 22 \\
+x_{5} &= 6 \\
+x_{6} &= 3 \\
+x_{7} &= 14 \\
+x_{8} &= 10 \\
+x_{9} &= 15 \\
+x_{10} &= 19 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 137\\
+
+% Machine 139
+\subsection*{Machine 139}
+\textbf{Pattern:} \texttt{[..##....]}\\
+\textbf{Targets:} $\{237,237,183,73,236,241,248,188\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,2,3,5\}$
+\item $x_{1}$ affects $\{0,1,3,4,5,6\}$
+\item $x_{2}$ affects $\{3,4,6\}$
+\item $x_{3}$ affects $\{1,3,6,7\}$
+\item $x_{4}$ affects $\{0,2,4,5,6,7\}$
+\item $x_{5}$ affects $\{0,1,3,5,6\}$
+\item $x_{6}$ affects $\{0,1,4,5\}$
+\item $x_{7}$ affects $\{0,3,4,5,6\}$
+\item $x_{8}$ affects $\{0,1,2,4,5,6,7\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,7 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 237 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} + x_{8} &= 237 \\
+x_{0} + x_{4} + x_{8} &= 183 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{7} &= 73 \\
+x_{1} + x_{2} + x_{4} + x_{6} + x_{7} + x_{8} &= 236 \\
+x_{0} + x_{1} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 241 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{7} + x_{8} &= 248 \\
+x_{3} + x_{4} + x_{8} &= 188 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 4 \\
+x_{1} &= 55 \\
+x_{2} &= 2 \\
+x_{3} &= 9 \\
+x_{4} &= 13 \\
+x_{5} &= 3 \\
+x_{8} &= 166 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 252\\
+
+% Machine 140
+\subsection*{Machine 140}
+\textbf{Pattern:} \texttt{[.#.#.#....]}\\
+\textbf{Targets:} $\{38,57,52,47,44,26,50,51,59,39\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3,4,6\}$
+\item $x_{1}$ affects $\{1,3,7,8\}$
+\item $x_{2}$ affects $\{4,5,6,8\}$
+\item $x_{3}$ affects $\{0,2,3,4,5,7,8,9\}$
+\item $x_{4}$ affects $\{1,6\}$
+\item $x_{5}$ affects $\{0,2,9\}$
+\item $x_{6}$ affects $\{1,2,4,5,6,7,8\}$
+\item $x_{7}$ affects $\{6,7\}$
+\item $x_{8}$ affects $\{0,8\}$
+\item $x_{9}$ affects $\{1,2,3,4,6,8,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{9} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{3} + x_{5} + x_{8} &= 38 \\
+x_{0} + x_{1} + x_{4} + x_{6} + x_{9} &= 57 \\
+x_{3} + x_{5} + x_{6} + x_{9} &= 52 \\
+x_{0} + x_{1} + x_{3} + x_{9} &= 47 \\
+x_{0} + x_{2} + x_{3} + x_{6} + x_{9} &= 44 \\
+x_{2} + x_{3} + x_{6} &= 26 \\
+x_{0} + x_{2} + x_{4} + x_{6} + x_{7} + x_{9} &= 50 \\
+x_{1} + x_{3} + x_{6} + x_{7} &= 51 \\
+x_{1} + x_{2} + x_{3} + x_{6} + x_{8} + x_{9} &= 59 \\
+x_{3} + x_{5} + x_{9} &= 39 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{1} &= 16 \\
+x_{3} &= 13 \\
+x_{4} &= 10 \\
+x_{5} &= 14 \\
+x_{6} &= 13 \\
+x_{7} &= 9 \\
+x_{8} &= 5 \\
+x_{9} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 98\\
+
+% Machine 141
+\subsection*{Machine 141}
+\textbf{Pattern:} \texttt{[....###..]}\\
+\textbf{Targets:} $\{61,54,75,56,93,82,95,100,74\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,4,5,6,7\}$
+\item $x_{1}$ affects $\{1,2,4,5,6,7,8\}$
+\item $x_{2}$ affects $\{0,2,3,4,5,7,8\}$
+\item $x_{3}$ affects $\{3,4,6\}$
+\item $x_{4}$ affects $\{0,4,5,7,8\}$
+\item $x_{5}$ affects $\{0,2,3,6,7\}$
+\item $x_{6}$ affects $\{0,1,2,5,6,7,8\}$
+\item $x_{7}$ affects $\{0,1,2,4,5,6,7,8\}$
+\item $x_{8}$ affects $\{1,2,3,4,5,6,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{4} + x_{5} + x_{6} + x_{7} &= 61 \\
+x_{1} + x_{6} + x_{7} + x_{8} &= 54 \\
+x_{1} + x_{2} + x_{5} + x_{6} + x_{7} + x_{8} &= 75 \\
+x_{0} + x_{2} + x_{3} + x_{5} + x_{8} &= 56 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{7} + x_{8} &= 93 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{6} + x_{7} + x_{8} &= 82 \\
+x_{0} + x_{1} + x_{3} + x_{5} + x_{6} + x_{7} + x_{8} &= 95 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} &= 100 \\
+x_{1} + x_{2} + x_{4} + x_{6} + x_{7} + x_{8} &= 74 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{1} &= 19 \\
+x_{2} &= 3 \\
+x_{3} &= 15 \\
+x_{4} &= 17 \\
+x_{5} &= 18 \\
+x_{6} &= 4 \\
+x_{7} &= 19 \\
+x_{8} &= 12 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 115\\
+
+% Machine 142
+\subsection*{Machine 142}
+\textbf{Pattern:} \texttt{[.###]}\\
+\textbf{Targets:} $\{33,27,34,13\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3\}$
+\item $x_{1}$ affects $\{0,2\}$
+\item $x_{2}$ affects $\{1,2\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{2} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} &= 33 \\
+x_{0} + x_{2} &= 27 \\
+x_{1} + x_{2} &= 34 \\
+x_{0} &= 13 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 13 \\
+x_{1} &= 20 \\
+x_{2} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 47\\
+
+% Machine 143
+\subsection*{Machine 143}
+\textbf{Pattern:} \texttt{[.....#]}\\
+\textbf{Targets:} $\{44,42,41,26,42,34\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{2,3,4,5\}$
+\item $x_{1}$ affects $\{0,1,2\}$
+\item $x_{2}$ affects $\{1,2,4\}$
+\item $x_{3}$ affects $\{0,1,4\}$
+\item $x_{4}$ affects $\{0,2,4,5\}$
+\item $x_{5}$ affects $\{3\}$
+\item $x_{6}$ affects $\{5\}$
+\item $x_{7}$ affects $\{0,1,2,3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{7} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,5 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{3} + x_{4} + x_{7} &= 44 \\
+x_{1} + x_{2} + x_{3} + x_{7} &= 42 \\
+x_{0} + x_{1} + x_{2} + x_{4} + x_{7} &= 41 \\
+x_{0} + x_{5} + x_{7} &= 26 \\
+x_{0} + x_{2} + x_{3} + x_{4} &= 42 \\
+x_{0} + x_{4} + x_{6} &= 34 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 17 \\
+x_{1} &= 11 \\
+x_{2} &= 1 \\
+x_{3} &= 21 \\
+x_{4} &= 3 \\
+x_{6} &= 14 \\
+x_{7} &= 9 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 76\\
+
+% Machine 144
+\subsection*{Machine 144}
+\textbf{Pattern:} \texttt{[##.#.]}\\
+\textbf{Targets:} $\{39,53,43,42,47\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,2,3\}$
+\item $x_{1}$ affects $\{0,3,4\}$
+\item $x_{2}$ affects $\{1,2\}$
+\item $x_{3}$ affects $\{0,4\}$
+\item $x_{4}$ affects $\{0,1,2,4\}$
+\item $x_{5}$ affects $\{1,3,4\}$
+\item $x_{6}$ affects $\{2,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{6} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{3} + x_{4} &= 39 \\
+x_{0} + x_{2} + x_{4} + x_{5} &= 53 \\
+x_{0} + x_{2} + x_{4} + x_{6} &= 43 \\
+x_{0} + x_{1} + x_{5} + x_{6} &= 42 \\
+x_{1} + x_{3} + x_{4} + x_{5} + x_{6} &= 47 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 16 \\
+x_{1} &= 2 \\
+x_{3} &= 1 \\
+x_{4} &= 20 \\
+x_{5} &= 17 \\
+x_{6} &= 7 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 63\\
+
+% Machine 145
+\subsection*{Machine 145}
+\textbf{Pattern:} \texttt{[..#.#]}\\
+\textbf{Targets:} $\{19,25,16,6,9\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,4\}$
+\item $x_{1}$ affects $\{0,1,2\}$
+\item $x_{2}$ affects $\{0,1,4\}$
+\item $x_{3}$ affects $\{1,2,3,4\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,4 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{1} + x_{2} &= 19 \\
+x_{0} + x_{1} + x_{2} + x_{3} &= 25 \\
+x_{1} + x_{3} &= 16 \\
+x_{0} + x_{3} &= 6 \\
+x_{0} + x_{2} + x_{3} &= 9 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 6 \\
+x_{1} &= 16 \\
+x_{2} &= 3 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 25\\
+
+% Machine 146
+\subsection*{Machine 146}
+\textbf{Pattern:} \texttt{[#..###.]}\\
+\textbf{Targets:} $\{43,35,31,31,31,35,50\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,6\}$
+\item $x_{1}$ affects $\{2,3\}$
+\item $x_{2}$ affects $\{0,1\}$
+\item $x_{3}$ affects $\{0,1,3,4,6\}$
+\item $x_{4}$ affects $\{1,2,4,5,6\}$
+\item $x_{5}$ affects $\{3,4,6\}$
+\item $x_{6}$ affects $\{0,6\}$
+\item $x_{7}$ affects $\{2,3,5\}$
+\item $x_{8}$ affects $\{0,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{3} + x_{6} + x_{8} &= 43 \\
+x_{0} + x_{2} + x_{3} + x_{4} &= 35 \\
+x_{1} + x_{4} + x_{7} &= 31 \\
+x_{1} + x_{3} + x_{5} + x_{7} &= 31 \\
+x_{3} + x_{4} + x_{5} + x_{8} &= 31 \\
+x_{4} + x_{7} + x_{8} &= 35 \\
+x_{0} + x_{3} + x_{4} + x_{5} + x_{6} &= 50 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 4 \\
+x_{1} &= 1 \\
+x_{2} &= 5 \\
+x_{3} &= 13 \\
+x_{4} &= 13 \\
+x_{6} &= 20 \\
+x_{7} &= 17 \\
+x_{8} &= 5 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 78\\
+
+% Machine 147
+\subsection*{Machine 147}
+\textbf{Pattern:} \texttt{[.##.##.##]}\\
+\textbf{Targets:} $\{34,17,23,37,16,44,2,14,2\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,3,4,6,7,8\}$
+\item $x_{1}$ affects $\{1,2,3,5\}$
+\item $x_{2}$ affects $\{0,1,2,3\}$
+\item $x_{3}$ affects $\{0,1,3,4,5\}$
+\item $x_{4}$ affects $\{8\}$
+\item $x_{5}$ affects $\{5,7\}$
+\item $x_{6}$ affects $\{0\}$
+\item $x_{7}$ affects $\{0,1,4,6,7\}$
+\item $x_{8}$ affects $\{2,3,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,8 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{2} + x_{3} + x_{6} + x_{7} &= 34 \\
+x_{1} + x_{2} + x_{3} + x_{7} &= 17 \\
+x_{0} + x_{1} + x_{2} + x_{8} &= 23 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{8} &= 37 \\
+x_{0} + x_{3} + x_{7} &= 16 \\
+x_{1} + x_{3} + x_{5} + x_{8} &= 44 \\
+x_{0} + x_{7} &= 2 \\
+x_{0} + x_{5} + x_{7} &= 14 \\
+x_{0} + x_{4} &= 2 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 2 \\
+x_{2} &= 3 \\
+x_{3} &= 14 \\
+x_{5} &= 12 \\
+x_{6} &= 15 \\
+x_{8} &= 18 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 64\\
+
+% Machine 148
+\subsection*{Machine 148}
+\textbf{Pattern:} \texttt{[..##..#...]}\\
+\textbf{Targets:} $\{31,37,21,46,69,41,66,44,58,39\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3,6,8,9\}$
+\item $x_{1}$ affects $\{1,2,4,5,8,9\}$
+\item $x_{2}$ affects $\{0,1,3,4,5,6,8,9\}$
+\item $x_{3}$ affects $\{4,6,7,8,9\}$
+\item $x_{4}$ affects $\{0,3,4,5,6,7,8\}$
+\item $x_{5}$ affects $\{2,4,5,7,8,9\}$
+\item $x_{6}$ affects $\{0,4,6\}$
+\item $x_{7}$ affects $\{4,6,7\}$
+\item $x_{8}$ affects $\{0,1,4,7\}$
+\item $x_{9}$ affects $\{1,2,3,4,5,6,8,9\}$
+\item $x_{10}$ affects $\{5,7,8\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{10} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{4} + x_{6} + x_{8} &= 31 \\
+x_{0} + x_{1} + x_{2} + x_{8} + x_{9} &= 37 \\
+x_{1} + x_{5} + x_{9} &= 21 \\
+x_{0} + x_{2} + x_{4} + x_{9} &= 46 \\
+x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{6} + x_{7} + x_{8} + x_{9} &= 69 \\
+x_{1} + x_{2} + x_{4} + x_{5} + x_{9} + x_{10} &= 41 \\
+x_{0} + x_{2} + x_{3} + x_{4} + x_{6} + x_{7} + x_{9} &= 66 \\
+x_{3} + x_{4} + x_{5} + x_{7} + x_{8} + x_{10} &= 44 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{4} + x_{5} + x_{9} + x_{10} &= 58 \\
+x_{0} + x_{1} + x_{2} + x_{3} + x_{5} + x_{9} &= 39 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 7 \\
+x_{1} &= 2 \\
+x_{2} &= 1 \\
+x_{3} &= 10 \\
+x_{4} &= 19 \\
+x_{6} &= 3 \\
+x_{7} &= 7 \\
+x_{8} &= 8 \\
+x_{9} &= 19 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 76\\
+
+% Machine 149
+\subsection*{Machine 149}
+\textbf{Pattern:} \texttt{[#.#.#.....]}\\
+\textbf{Targets:} $\{63,27,54,28,46,57,54,22,27,38\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{3,4,9\}$
+\item $x_{1}$ affects $\{1,2,6\}$
+\item $x_{2}$ affects $\{0,3,6\}$
+\item $x_{3}$ affects $\{6,8,9\}$
+\item $x_{4}$ affects $\{2,5\}$
+\item $x_{5}$ affects $\{0,2,4\}$
+\item $x_{6}$ affects $\{0,1,3,6,7,8,9\}$
+\item $x_{7}$ affects $\{0,4,5\}$
+\item $x_{8}$ affects $\{0,1,2,4,5,6,7,8\}$
+\item $x_{9}$ affects $\{0,2,3,4,5,6,7,9\}$
+\item $x_{10}$ affects $\{0,2,3,5,6,7\}$
+\item $x_{11}$ affects $\{4,8,9\}$
+\item $x_{12}$ affects $\{0,5,9\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{12} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,9 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{2} + x_{5} + x_{6} + x_{7} + x_{8} + x_{9} + x_{10} + x_{12} &= 63 \\
+x_{1} + x_{6} + x_{8} &= 27 \\
+x_{1} + x_{4} + x_{5} + x_{8} + x_{9} + x_{10} &= 54 \\
+x_{0} + x_{2} + x_{6} + x_{9} + x_{10} &= 28 \\
+x_{0} + x_{5} + x_{7} + x_{8} + x_{9} + x_{11} &= 46 \\
+x_{4} + x_{7} + x_{8} + x_{9} + x_{10} + x_{12} &= 57 \\
+x_{1} + x_{2} + x_{3} + x_{6} + x_{8} + x_{9} + x_{10} &= 54 \\
+x_{6} + x_{8} + x_{9} + x_{10} &= 22 \\
+x_{3} + x_{6} + x_{8} + x_{11} &= 27 \\
+x_{0} + x_{3} + x_{6} + x_{9} + x_{11} + x_{12} &= 38 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 1 \\
+x_{1} &= 14 \\
+x_{2} &= 18 \\
+x_{4} &= 15 \\
+x_{5} &= 3 \\
+x_{7} &= 6 \\
+x_{8} &= 13 \\
+x_{9} &= 9 \\
+x_{11} &= 14 \\
+x_{12} &= 14 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 107\\
+
+% Machine 150
+\subsection*{Machine 150}
+\textbf{Pattern:} \texttt{[##..]}\\
+\textbf{Targets:} $\{4,11,14,31\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,3\}$
+\item $x_{1}$ affects $\{3\}$
+\item $x_{2}$ affects $\{2,3\}$
+\item $x_{3}$ affects $\{0,1\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{3} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} &= 4 \\
+x_{0} + x_{3} &= 11 \\
+x_{2} &= 14 \\
+x_{0} + x_{1} + x_{2} &= 31 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 7 \\
+x_{1} &= 10 \\
+x_{2} &= 14 \\
+x_{3} &= 4 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 35\\
+
+% Machine 151
+\subsection*{Machine 151}
+\textbf{Pattern:} \texttt{[.#.#]}\\
+\textbf{Targets:} $\{29,22,24,23\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,1,3\}$
+\item $x_{1}$ affects $\{0,2\}$
+\item $x_{2}$ affects $\{1,3\}$
+\item $x_{3}$ affects $\{1,2\}$
+\item $x_{4}$ affects $\{2\}$
+\item $x_{5}$ affects $\{3\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,3 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} &= 29 \\
+x_{0} + x_{2} + x_{3} &= 22 \\
+x_{1} + x_{3} + x_{4} &= 24 \\
+x_{0} + x_{2} + x_{5} &= 23 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 22 \\
+x_{1} &= 7 \\
+x_{4} &= 17 \\
+x_{5} &= 1 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 47\\
+
+% Machine 152
+\subsection*{Machine 152}
+\textbf{Pattern:} \texttt{[#.##...]}\\
+\textbf{Targets:} $\{18,35,40,224,27,224,35\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{1,4,5,6\}$
+\item $x_{1}$ affects $\{3,5\}$
+\item $x_{2}$ affects $\{1,2,3,6\}$
+\item $x_{3}$ affects $\{0,1,2,3,6\}$
+\item $x_{4}$ affects $\{2,4,5\}$
+\item $x_{5}$ affects $\{4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{5} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{3} &= 18 \\
+x_{0} + x_{2} + x_{3} &= 35 \\
+x_{2} + x_{3} + x_{4} &= 40 \\
+x_{1} + x_{2} + x_{3} &= 224 \\
+x_{0} + x_{4} + x_{5} &= 27 \\
+x_{0} + x_{1} + x_{4} + x_{5} &= 224 \\
+x_{0} + x_{2} + x_{3} &= 35 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 8 \\
+x_{1} &= 197 \\
+x_{2} &= 9 \\
+x_{3} &= 18 \\
+x_{4} &= 13 \\
+x_{5} &= 6 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 251\\
+
+% Machine 153
+\subsection*{Machine 153}
+\textbf{Pattern:} \texttt{[##..#..]}\\
+\textbf{Targets:} $\{50,35,16,31,64,66,48\}$\\
+\textbf{Buttons:}\\
+\begin{itemize}
+\item $x_{0}$ affects $\{0,2,4,6\}$
+\item $x_{1}$ affects $\{0,1,3\}$
+\item $x_{2}$ affects $\{0,1,2,5,6\}$
+\item $x_{3}$ affects $\{4,5,6\}$
+\item $x_{4}$ affects $\{0\}$
+\item $x_{5}$ affects $\{0,1,2,3,5\}$
+\item $x_{6}$ affects $\{0,4,5,6\}$
+\item $x_{7}$ affects $\{0,1,2,4,5\}$
+\item $x_{8}$ affects $\{1,3,4,5\}$
+\end{itemize}
+\[
+\begin{aligned}
+\min \quad & \sum_{j=0}^{8} x_j \\
+\text{s.t.}\quad & \sum_{j \in S_i} x_j = b_i \quad \forall i=0,\dots,6 \\
+& x_j \in \mathbb{Z}_{\ge 0}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+x_{0} + x_{1} + x_{2} + x_{4} + x_{5} + x_{6} + x_{7} &= 50 \\
+x_{1} + x_{2} + x_{5} + x_{7} + x_{8} &= 35 \\
+x_{0} + x_{2} + x_{5} + x_{7} &= 16 \\
+x_{1} + x_{5} + x_{8} &= 31 \\
+x_{0} + x_{3} + x_{6} + x_{7} + x_{8} &= 64 \\
+x_{2} + x_{3} + x_{5} + x_{6} + x_{7} + x_{8} &= 66 \\
+x_{0} + x_{2} + x_{3} + x_{6} &= 48 \\
+\end{aligned}
+\]
+\textbf{Solution:} \\
+\[
+\begin{aligned}
+x_{0} &= 7 \\
+x_{1} &= 6 \\
+x_{2} &= 4 \\
+x_{3} &= 9 \\
+x_{5} &= 5 \\
+x_{6} &= 28 \\
+x_{8} &= 20 \\
+\end{aligned}
+\]
+\textbf{Total presses:} 79\\
+
+\end{document}

@@ -1,0 +1,131 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string trim(const string &s)
+{
+    int n = (int)s.size();
+    int i = 0;
+    while (i < n && s[i] == ' ')
+        ++i;
+    int j = n - 1;
+    while (j >= i && s[j] == ' ')
+        --j;
+    if (i > j)
+        return "";
+    return s.substr(i, j - i + 1);
+}
+
+int main()
+{
+
+    vector<string> lines;
+    string line;
+    int maxLen = 0;
+
+    while (getline(cin, line))
+    {
+        lines.push_back(line);
+        maxLen = max(maxLen, (int)line.size());
+    }
+
+    if (lines.empty())
+    {
+        cout << 0 << "\n";
+        return 0;
+    }
+
+    for (string &row : lines)
+    {
+        if ((int)row.size() < maxLen)
+        {
+            row += string(maxLen - row.size(), ' ');
+        }
+    }
+
+    int rows = (int)lines.size();
+    int cols = maxLen;
+
+    vector<bool> sep(cols, false);
+    for (int c = 0; c < cols; ++c)
+    {
+        bool allSpace = true;
+        for (int r = 0; r < rows; ++r)
+        {
+            if (lines[r][c] != ' ')
+            {
+                allSpace = false;
+                break;
+            }
+        }
+        sep[c] = allSpace;
+    }
+
+    long long grand_total = 0;
+    int r_op = rows - 1;
+
+    int c = 0;
+    while (c < cols)
+    {
+
+        while (c < cols && sep[c])
+            ++c;
+        if (c >= cols)
+            break;
+
+        int c_start = c;
+        while (c < cols && !sep[c])
+            ++c;
+        int c_end = c - 1;
+
+        int width = c_end - c_start + 1;
+
+        char op = 0;
+        for (int cc = c_start; cc <= c_end; ++cc)
+        {
+            if (lines[r_op][cc] == '+' || lines[r_op][cc] == '*')
+            {
+                op = lines[r_op][cc];
+                break;
+            }
+        }
+        if (op == 0)
+        {
+
+            continue;
+        }
+
+        vector<long long> nums;
+        for (int r = 0; r < r_op; ++r)
+        {
+            string segment = lines[r].substr(c_start, width);
+            string t = trim(segment);
+            if (!t.empty())
+            {
+                long long val = stoll(t);
+                nums.push_back(val);
+            }
+        }
+
+        if (nums.empty())
+            continue;
+
+        long long value;
+        if (op == '+')
+        {
+            value = 0;
+            for (long long v : nums)
+                value += v;
+        }
+        else
+        {
+            value = 1;
+            for (long long v : nums)
+                value *= v;
+        }
+
+        grand_total += value;
+    }
+
+    cout << grand_total << "\n";
+    return 0;
+}
