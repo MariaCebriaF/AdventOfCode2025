@@ -15,7 +15,7 @@ María Fátima Cebriá Fernández
 - [Rubrica](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/rubrica.txt)
 
 
-## Criterios de elección de los problemas
+## Criterios de elección de los problemas
 Los problemas seleccionados cumplen al menos uno de los siguientes objetivos formativos:
 
 - Son problemas donde la estructura de datos es necesaria para alcanzar una solución eficiente.
@@ -26,15 +26,15 @@ Los problemas seleccionados cumplen al menos uno de los siguientes objetivos for
 #### Día 5 – Árboles
 El problema presenta una jerarquía natural que se modela directamente como un árbol. El uso de esta estructura permite recorrer y procesar la información de forma estructurada, evitando soluciones lineales poco expresivas.
 
-#### Día 7 – Hash Tables
+#### Día 7 – Hash Tables
 El estado del sistema es disperso y dinámico. El uso de una hash table permite almacenar únicamente los elementos activos en cada iteración, evitando recorrer estructuras completas innecesarias.
 Además, se implementa una hash table propia para demostrar comprensión del funcionamiento interno (hash, colisiones, rehash), más allá del uso de la STL.
-#### Día 8 – Grafos (+ Divide y Vencerás)
+#### Día 8 – Grafos (+ Divide y Vencerás)
 Aunque el problema se descompone en subestructuras más pequeñas, la técnica principal utilizada no es divide y vencerás en sentido estricto, sino el modelado mediante grafos y el análisis de sus componentes. La descomposición sirve para facilitar el procesamiento del grafo, pero no existe una fase explícita de combinación de soluciones parciales.
 
 El problema se modela de forma natural como un grafo, donde nodos y aristas representan relaciones entre elementos. El uso de estructuras de grafos permite aplicar recorridos y técnicas estándar que no serían posibles con estructuras lineales simples. 
 
-#### Día 11 – Programación Dinámica
+#### Día 11 – Programación Dinámica
 El problema presenta subproblemas solapados. El uso de memoización evita recomputaciones innecesarias y reduce el coste computacional de forma significativa, convirtiendo una solución potencialmente exponencial en una solución eficiente.
 
 
@@ -73,4 +73,5 @@ Durante la resolución día tras día del advent hemos conseguido mejorar nuestr
 Por otro lado estamos muy contentos pues nos ha supuesto un reto muy entretenido y del que hemos sacado una experiencia muy educativa. 
 
 Además hemos llegado a "discutir" sobre las diferentes formas de resolver un mismo problema y tras probarlas decidir cuál era la optima debido a los costes temporales, lo que nos ha permitido ser más conscientes de la importacia de optimizar el código.
+
 
