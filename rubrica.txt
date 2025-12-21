@@ -1,0 +1,13 @@
+ELECCIÓN DEL PROBLEMA ----------
+Adecuación y desafío técnico del problema -> 10 puntos (1.5)
+
+CÓDIGO -------------------------
+Corrección -> 10 puntos (2)
+Calidad algorítmica y eficiencia -> 10 puntos (2)
+Diseño y claridad del código -> 10 puntos (2)
+
+MEMORIA ------------------------
+Justificación -> 10 puntos (0.5)
+Descripción técnica -> 10 puntos (1)
+Alternativas -> 10 puntos (0.5)
+Valoración personal -> 10 puntos (0.5)
