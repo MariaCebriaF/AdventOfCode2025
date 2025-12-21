@@ -12,6 +12,7 @@ María Fátima Cebriá Fernández
 - [Día 7 : Hash Table](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/dia7/dia7hashtable.cpp) -> [Explicación del día 7](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/dia7/README7.md)
 - [Día 8 : Grafos (+ Divide y Vencerás)](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/dia8/dia8a.cpp) -> [Explicación del día 8](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/dia8/REAMEdía8.md)
 - [Día 11 : Programacion Dinamica](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/dia11/dia11programaciondinamica.cpp) -> [Explicación del día 11](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/dia11/READMEdia11.md)
+- [Rubrica](https://github.com/MariaCebriaF/AdventOfCode2025/blob/master/rubrica.txt)
 
 
 ## Criterios de elección de los problemas
@@ -72,3 +73,4 @@ Durante la resolución día tras día del advent hemos conseguido mejorar nuestr
 Por otro lado estamos muy contentos pues nos ha supuesto un reto muy entretenido y del que hemos sacado una experiencia muy educativa. 
 
 Además hemos llegado a "discutir" sobre las diferentes formas de resolver un mismo problema y tras probarlas decidir cuál era la optima debido a los costes temporales, lo que nos ha permitido ser más conscientes de la importacia de optimizar el código.
+
